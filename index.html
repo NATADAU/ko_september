@@ -66,6 +66,8 @@ main{max-width:1000px;margin:0 auto;padding:24px 16px 70px;}
 .ctip b{display:block;margin-bottom:3px;color:var(--black);}
 .ctip div{display:flex;align-items:center;gap:6px;color:var(--grey);}
 .ctip i{width:10px;height:10px;border-radius:3px;display:inline-block;}
+.srcline{font-size:.8rem;color:var(--grey);margin-top:28px;padding-top:12px;border-top:1px solid var(--brd);line-height:1.6;}
+.chart-note small{display:block;margin-top:6px;font-size:.82rem;}
 .chart-note{font-size:.88rem;color:var(--grey);margin-top:12px;padding:9px 13px;background:#f5fbfc;border-radius:8px;border-left:3px solid var(--teal2);line-height:1.55;}
 
 /* TRANSITION FLOW */
@@ -152,6 +154,7 @@ tr.tot td{font-weight:700;}
 .cmp-cols{display:flex;gap:1em;height:13em;align-items:flex-end;}
 .cmp-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
 .cmp-d{font-size:.85em;font-weight:700;border-radius:1em;padding:.1em .6em;margin-bottom:.3em;}
+.cmp-d.flat{background:#ececeb;color:#555;}
 .cmp-d.up{background:#d9f3e2;color:#03782a;}.cmp-d.down{background:#fbdbe5;color:#a8003b;}
 .cmp-v{font-size:1.9em;font-weight:800;letter-spacing:-.02em;color:var(--grey);line-height:1.1;margin-bottom:.25em;}
 .cmp-bw{flex:1;width:70%;position:relative;}
@@ -300,7 +303,7 @@ body.showing{overflow:hidden;}
       <div class="card-lbl">Занятия и консультации</div>
       <div class="card-val vt">388</div>
       <div class="card-sub">339 занимаются регулярно, 49 пришли только на консультации</div>
-      <div class="delta du">▲ на 3% больше, чем в сентябре 2025 (377)</div>
+      <div class="delta dn">● на уровне сентября 2025 (377)*</div>
     </div>
     <div class="card cg">
       <div class="card-lbl">Всего человек</div>
@@ -313,9 +316,9 @@ body.showing{overflow:hidden;}
   <div class="sec">Три сентября подряд</div>
   <div class="ccrd">
     <h3>Как менялся сентябрь за три года</h3>
-    <div class="cs">Два показателя идут в разные стороны, поэтому показываем их отдельно.</div>
+    <div class="cs">Каждый показатель на своей шкале, обе начинаются с нуля.</div>
     <div class="cmp" id="cmpMain"></div>
-    <div class="chart-note">Занятий и консультаций от сентября к сентябрю становится больше: 374 → 377 → 388. Первичный приём после прошлогоднего подъёма снизился до 78. Поэтому общее число (466) оказалось между двумя прошлыми сентябрями: выше, чем в 2024 году (460), но ниже, чем в 2025-м (475).</div>
+    <div class="chart-note">Занятия и консультации держатся на уровне прошлых сентябрей: 374, 377 и 388*. Первичный приём ниже прошлого года: 78 против 98. Поэтому общее число (466) немного ниже сентября 2025 года (475) и чуть выше сентября 2024-го (460).<br><small>* Сентябрь 2026 посчитан по договорам, прошлые годы — по табелю. По договорам обычно выходит на 1–5% больше, поэтому разницу в 11 человек корректно считать уровнем прошлого года, а не ростом.</small></div>
   </div>
 
   <div class="sec">Состав регулярных занятий в сентябре</div>
@@ -359,11 +362,11 @@ body.showing{overflow:hidden;}
 
   <div class="sec">По возрасту · полных лет на 1 сентября 2026</div>
   <div class="ages" id="agesMain"></div>
-  <div class="chart-note" style="margin-top:14px">Чем старше группа, тем стабильнее состав: у молодых людей и взрослых 88% сентябрьского состава занимались у нас и раньше, у детей и подростков 9–17 лет — 87%, у детей до 9 лет — 67%. Младшая группа обновляется сильнее всех: многие прошлогодние малыши пошли в школу, и на эту группу приходятся <strong>две трети новичков</strong> (49 из 73).</div>
+  <div class="chart-note" style="margin-top:14px">У детей и подростков 9–17 лет и у молодых людей и взрослых состав одинаково стабилен: 87% и 88% занимались у нас и раньше. У детей до 9 лет — 67%. Младшая группа обновляется заметно сильнее: многие прошлогодние малыши пошли в школу, и на эту группу приходятся <strong>две трети новичков</strong> (49 из 73).</div>
 
   <div class="sec">Для справки</div>
   <div class="ccrd">
-    <h3>Почему список за полгода больше состава любого месяца</h3>
+    <h3>Почему список за полгода больше состава любого месяца</h3><div class="cs" style="margin-bottom:4px">По договорам, только регулярные занятия.</div>
     <div class="cs">В течение учебного года одни начинают заниматься, другие заканчивают. Поэтому за полгода набирается больше людей, чем занимается в каждый отдельный месяц.</div>
     <div class="tscroll"><table class="mini">
       <thead><tr><th></th><th>Янв</th><th>Фев</th><th>Мар</th><th>Апр</th><th>Май</th><th>Июн</th><th>За январь–июнь</th></tr></thead>
@@ -385,7 +388,7 @@ body.showing{overflow:hidden;}
       <div class="li"><div class="ld" style="background:#E5004F"></div>2026–27</div>
     </div>
     <div class="cwrap"><div id="cTotal" class="svgc"></div></div>
-    <div class="chart-note">Сентябрь 2026 года (466) немного уступает сентябрю 2025-го (475), но превышает средний уровень прошлого учебного года (453 в месяц) и заметно выше июня (398): после лета дети и взрослые вернулись на занятия.</div>
+    <div class="chart-note">Сентябрь 2026 года (466) немного уступает сентябрю 2025-го (475) и чуть выше сентября 2024-го (460). Шкала начинается с нуля. Сентябрь 2026 — по договорам, остальные месяцы — по табелю.</div>
   </div>
   <div class="sec">Занятия и консультации по месяцам</div>
   <div class="ccrd">
@@ -395,20 +398,20 @@ body.showing{overflow:hidden;}
       <div class="li"><div class="ld" style="background:#E5004F"></div>2026–27</div>
     </div>
     <div class="cwrap"><div id="cLess" class="svgc"></div></div>
-    <div class="chart-note">В сентябре на занятиях и консультациях 388 человек. Это больше, чем в начале каждого из двух предыдущих учебных лет.</div>
+    <div class="chart-note">В сентябре на занятиях и консультациях 388 человек — на уровне начала двух предыдущих учебных лет (374 и 377).</div>
   </div>
 </div>
 
 <!-- ══ ТАБЛИЦЫ ══ -->
 <div class="tab-panel" id="tab-table">
   <div class="twrap">
-    <div class="thdr"><h3>Сравнение сентябрей</h3><p>Изменения указаны относительно сентября предыдущего года</p></div>
+    <div class="thdr"><h3>Сравнение сентябрей</h3><p>Изменения указаны относительно сентября предыдущего года. * Сентябрь 2026 — по договорам, прошлые годы — по табелю; по договорам обычно выходит на 1–5% больше, поэтому +3% — это уровень прошлого года.</p></div>
     <div class="tscroll"><table>
       <thead><tr><th>Месяц</th><th>Первичный приём</th><th>Изменение</th><th>Занятия и консультации</th><th>Изменение</th><th>Всего</th><th>Изменение</th></tr></thead>
       <tbody>
         <tr><td>Сентябрь 2024</td><td>86</td><td>—</td><td>374</td><td>—</td><td>460</td><td>—</td></tr>
-        <tr><td>Сентябрь 2025</td><td>98</td><td class="tdg">+12 (+14%)</td><td>377</td><td class="tdg">+3 (+1%)</td><td>475</td><td class="tdg">+15 (+3%)</td></tr>
-        <tr class="cur"><td>Сентябрь 2026 ★</td><td>78</td><td class="tdp">−20 (−20%)</td><td>388</td><td class="tdg">+11 (+3%)</td><td>466</td><td class="tdp">−9 (−2%)</td></tr>
+        <tr><td>Сентябрь 2025</td><td>98</td><td class="tdg">+12 (+14%)</td><td>377</td><td>+3 (+1%)</td><td>475</td><td class="tdg">+15 (+3%)</td></tr>
+        <tr class="cur"><td>Сентябрь 2026 ★</td><td>78</td><td class="tdp">−20 (−20%)</td><td>388*</td><td>+11 (+3%)</td><td>466</td><td class="tdp">−9 (−2%)</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -442,8 +445,8 @@ body.showing{overflow:hidden;}
   </div>
 
   <div class="conc">
-    <h3>Занятия и консультации <span class="tag tagg">+3% к сентябрю 2025</span></h3>
-    <div class="conc-body">На занятиях и консультациях <strong>388 человек</strong>, больше, чем в каждом из двух предыдущих сентябрей (377 и 374). 339 из них занимаются регулярно, ещё 49 пришли только на консультации. Общее число снизилось исключительно из-за первичного приёма: <strong>78 человек против 98</strong> годом ранее.</div>
+    <h3>Занятия и консультации <span class="tag tagt">на уровне сентября 2025</span></h3>
+    <div class="conc-body">На занятиях и консультациях <strong>388 человек</strong> — на уровне двух предыдущих сентябрей (377 и 374; сентябрь 2026 посчитан по договорам, прошлые годы — по табелю). 339 из них занимаются регулярно, ещё 49 пришли только на консультации. Общее число снизилось прежде всего из-за первичного приёма: <strong>78 человек против 98</strong> годом ранее.</div>
   </div>
 
   <div class="conc">
@@ -454,18 +457,19 @@ body.showing{overflow:hidden;}
   </div>
 
   <div class="conc">
-    <h3>Возраст <span class="tag tagt">гипотеза подтвердилась</span></h3>
+    <h3>Возраст <span class="tag tagt">младшие обновляются сильнее</span></h3>
     <div class="conc-body">
       <ul>
-        <li><strong>Молодые люди и взрослые (18+)</strong> — самый стабильный состав: 88% занимались у нас и раньше (65 из 74), новичков 12% (9).</li>
+        <li><strong>Молодые люди и взрослые (18+):</strong> 88% занимались у нас и раньше (65 из 74), новичков 12% (9).</li>
         <li><strong>Дети и подростки 9–17 лет:</strong> 87% занимались и раньше (102 из 117), новичков 13% (15).</li>
         <li><strong>Дети до 9 лет</strong> — самое заметное обновление: 67% занимались и раньше (99 из 148), новичком оказался каждый третий (49, 33%). Многие прошлогодние малыши пошли в школу.</li>
       </ul>
-      Данные подтверждают обе гипотезы: состав молодых людей и взрослых самый стабильный, а сильнее всего обновляется младшая группа.
+      Сильнее всего обновляется младшая группа — это подтверждается. А вот отдельного преимущества взрослых нет: у них и у группы 9–17 лет доли прежнего состава практически совпадают (88% и 87%).
     </div>
   </div>
 
 </div>
+<div class="srcline">Источники: сентябрь 2024 и 2025 годов, помесячные данные 2024–26 — детский табель; занятия и консультации в сентябре 2026 — отчёт «Этапы контрактов»; первичный приём в сентябре 2026 — данные ЦЛП.</div>
 </main>
 
 <!-- ═══════════ РЕЖИМ ПОКАЗА ═══════════ -->
@@ -478,16 +482,16 @@ body.showing{overflow:hidden;}
     <div class="s-title">В сентябре помощь ЦЛП получили <em>466 человек</em></div>
     <div class="s-row">
       <div class="s-num p"><div class="v" style="color:var(--pink)">78</div><div class="l">первичный приём</div><div class="d dd">▼ на 20% меньше, чем год назад</div></div>
-      <div class="s-num"><div class="v" style="color:var(--teal)">388</div><div class="l">занятия и консультации</div><div class="d du">▲ на 3% больше, чем год назад</div></div>
+      <div class="s-num"><div class="v" style="color:var(--teal)">388</div><div class="l">занятия и консультации</div><div class="d dn">● на уровне прошлого года</div></div>
       <div class="s-num g"><div class="v" style="color:var(--grn)">466</div><div class="l">всего человек</div><div class="d dd">▼ на 2% меньше, чем год назад</div></div>
     </div>
   </section>
 
   <section class="slide">
     <div class="s-kicker">Три сентября подряд</div>
-    <div class="s-title">Занятий и консультаций — <em>больше</em>, первичных приёмов — <span style="color:var(--pink)">меньше</span></div>
+    <div class="s-title">Занятия и консультации — <em>на уровне прошлых лет</em>, первичный приём — <span style="color:var(--pink)">ниже</span></div>
     <div class="cmp s-cmp" id="cmpShow"></div>
-    <div class="s-foot">Всего человек: 460 → 475 → <b>466</b></div>
+    <div class="s-foot">Всего человек: 460 → 475 → <b>466</b> · <span style="font-size:.8em">сентябрь 2026 — по договорам, прошлые годы — по табелю</span></div>
   </section>
 
   <section class="slide">
@@ -499,7 +503,7 @@ body.showing{overflow:hidden;}
 
   <section class="slide">
     <div class="s-kicker">Состав по возрасту</div>
-    <div class="s-title">Взрослые — почти целиком <em>прежний состав</em>. У младших детей каждый третий — <span class="g">новичок</span></div>
+    <div class="s-title">С 9 лет и старше — <em>почти 9 из 10</em> прежние. У младших детей каждый третий — <span class="g">новичок</span></div>
     <div class="s-ages" id="agesShow"></div>
   </section>
 
@@ -507,10 +511,10 @@ body.showing{overflow:hidden;}
     <div class="s-kicker">Итоги сентября</div>
     <div class="s-title">Главное</div>
     <div class="s-list">
-      <div><b>466 человек</b> получили помощь в сентябре. На занятиях и консультациях — больше, чем год назад (388 против 377), на первичном приёме — меньше (78 против 98).</div>
+      <div><b>466 человек</b> получили помощь в сентябре. Занятия и консультации — на уровне прошлого года (388 и 377), первичный приём — ниже (78 против 98).</div>
       <div><b>339 человек</b> регулярно занимаются в сентябре, <b>266</b> из них (78%) занимались у нас и в прошлом учебном году.</div>
       <div class="g"><b>73 новичка</b> — каждый пятый в сентябрьском составе. Две трети из них — дети до 9 лет: многие прошлогодние малыши пошли в школу, и младшая группа обновилась сильнее всех.</div>
-      <div><b>Взрослый состав</b> самый стабильный: 88% занимались у нас и раньше.</div>
+      <div>В группах <b>9–17 лет и 18+</b> почти 9 из 10 человек занимались у нас и раньше (87% и 88%).</div>
     </div>
   </section>
 
@@ -572,7 +576,7 @@ function cmpHTML(){
     return `<div class="cmp-panel"><div class="cmp-h"><i style="background:${color}"></i>${title}</div><div class="cmp-cols">`+
       SEPS.map((s,i)=>{const v=s[key], d=i?v-SEPS[i-1][key]:null, cur=i===SEPS.length-1;
         return `<div class="cmp-col${cur?' cur':''}">
-          <div class="cmp-d ${d==null?'':(d>=0?'up':'down')}">${d==null?'&nbsp;':(d>0?'+':'−')+Math.abs(d)}</div>
+          <div class="cmp-d ${d==null?'':(Math.abs(d)/SEPS[i-1][key]<0.05?'flat':(d>=0?'up':'down'))}">${d==null?'&nbsp;':(d>0?'+':'−')+Math.abs(d)}</div>
           <div class="cmp-v" style="${cur?'color:'+color:''}">${v}</div>
           <div class="cmp-bw"><div class="cmp-bar" style="height:${(v/max*100).toFixed(1)}%;background:${cur?color:colorPast}"></div></div>
           <div class="cmp-y">сентябрь ${s.y}</div></div>`;}).join('')+`</div></div>`;
@@ -624,14 +628,14 @@ function stackedBars(id,labels,series){
 function lines(id,labels,series){
   const host=document.getElementById(id), tip=tipBox(host.parentNode);
   const all=series.flatMap(s=>s.data.filter(v=>v!=null));
-  const f=frame(host,Math.min(...all)*0.92,Math.max(...all)*1.04), n=labels.length, cw=(f.W-f.L-f.R)/n, X=i=>f.L+cw*i+cw/2;
+  const f=frame(host,0,Math.max(...all)*1.06), n=labels.length, cw=(f.W-f.L-f.R)/n, X=i=>f.L+cw*i+cw/2;
   labels.forEach((lab,i)=>el('text',{x:X(i),y:f.H-8,'text-anchor':'middle','font-size':13,fill:'#626261'},f.svg).textContent=lab);
   const cross=el('line',{y1:f.Tp,y2:f.H-f.B,stroke:'#C7E9ED','stroke-width':2,opacity:0},f.svg);
   series.forEach(s=>{
     const pts=s.data.map((v,i)=>v==null?null:[X(i),f.Y(v)]).filter(Boolean);
     if(pts.length>1) el('path',{d:'M'+pts.map(p=>p.join(',')).join('L'),fill:'none',stroke:s.color,'stroke-width':s.w||2,'stroke-linejoin':'round'},f.svg);
     pts.forEach(p=>el('circle',{cx:p[0],cy:p[1],r:s.r||4,fill:s.color,stroke:'#fff','stroke-width':2},f.svg));
-    if(s.label){const p=pts[pts.length-1];el('text',{x:p[0]+12,y:p[1]+5,'font-size':14,'font-weight':700,fill:'#2A2A2A'},f.svg).textContent=s.label;}
+    if(s.label){const p=pts[pts.length-1];el('text',{x:p[0]+10,y:p[1]-14,'font-size':14,'font-weight':700,fill:'#2A2A2A'},f.svg).textContent=s.label;}
   });
   const hit=el('rect',{x:f.L,y:0,width:f.W-f.L-f.R,height:f.H,fill:'transparent'},f.svg);
   hit.addEventListener('mousemove',ev=>{const r=host.getBoundingClientRect();const sx=(ev.clientX-r.left)*(f.W/r.width);const i=Math.max(0,Math.min(n-1,Math.floor((sx-f.L)/cw)));
@@ -643,8 +647,8 @@ function lines(id,labels,series){
 function drawCharts(){
   const pad=v=>[v,null,null,null,null,null,null,null,null,null];
   if(document.getElementById('tab-dynamics').classList.contains('active')){
-    lines('cTotal',M,[{name:'2024–25',data:t24,color:'#A9A9A8'},{name:'2025–26',data:t25,color:'#019BAB',w:2.5},{name:'2026–27',data:pad(466),color:'#E5004F',r:8,label:'466'}]);
-    lines('cLess',M,[{name:'2024–25',data:l24,color:'#A9A9A8'},{name:'2025–26',data:l25,color:'#019BAB',w:2.5},{name:'2026–27',data:pad(388),color:'#E5004F',r:8,label:'388'}]);
+    lines('cTotal',M,[{name:'2024–25',data:t24,color:'#A9A9A8'},{name:'2025–26',data:t25,color:'#019BAB',w:2.5},{name:'2026–27',data:pad(466),color:'#E5004F',r:8,label:'466*'}]);
+    lines('cLess',M,[{name:'2024–25',data:l24,color:'#A9A9A8'},{name:'2025–26',data:l25,color:'#019BAB',w:2.5},{name:'2026–27',data:pad(388),color:'#E5004F',r:8,label:'388*'}]);
   }
 }
 drawCharts();
