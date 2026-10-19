@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контрактный отдел — сентябрь 2026</title>
+<style>
+:root{
+  --teal:#019BAB;--teal2:#5BBEC9;--teal3:#C7E9ED;--tealD:#017a87;
+  --pink:#E5004F;--pink2:#EA496D;--yel:#F8A600;--grn:#04A634;--grn2:#89BD1E;
+  --bg:#F8F8F8;--white:#FFFFFF;--grey:#626261;--grey2:#A9A9A8;--grey3:#E3E3E2;--black:#2A2A2A;--brd:#D8EDEF;--r:14px;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:linear-gradient(160deg,#f0fafb 0%,#f8f8f8 60%,#fdf0f5 100%);background-attachment:fixed;color:var(--black);font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;min-height:100vh;}
+
+/* HEADER */
+.hdr{background:linear-gradient(120deg,var(--tealD) 0%,var(--teal) 40%,var(--teal2) 100%);padding:0 20px;position:sticky;top:0;z-index:200;box-shadow:0 4px 24px rgba(1,155,171,.4);}
+.hdr-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 0 0;flex-wrap:wrap;gap:10px;}
+.hdr h1{font-size:clamp(1.05rem,3.5vw,1.45rem);font-weight:700;color:#fff;}
+.hdr-sub{font-size:.88rem;color:rgba(255,255,255,.85);margin-top:3px;}
+.logo{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,.55);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.95rem;letter-spacing:.02em;background:rgba(255,255,255,.12);}
+.hdr-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.5);border-radius:20px;padding:5px 16px;font-size:.88rem;color:#fff;font-weight:700;white-space:nowrap;}
+.show-btn{background:#fff;color:var(--tealD);border:none;border-radius:20px;padding:8px 18px;font:700 .92rem inherit;font-family:inherit;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.15);transition:.2s;white-space:nowrap;}
+.show-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.2);}
+.tabs{max-width:1040px;margin:12px auto 0;display:flex;overflow-x:auto;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab-btn{background:none;border:none;border-bottom:3px solid transparent;color:rgba(255,255,255,.75);cursor:pointer;font-size:1rem;font-family:inherit;font-weight:500;padding:10px 20px;transition:.25s;white-space:nowrap;}
+.tab-btn:hover{color:#fff;}
+.tab-btn.active{color:#fff;border-bottom-color:#fff;}
+.tab-btn.hot::after{content:'новое';font-size:.65rem;font-weight:700;background:var(--yel);color:#fff;border-radius:8px;padding:1px 6px;margin-left:6px;vertical-align:2px;}
+
+main{max-width:1000px;margin:0 auto;padding:24px 16px 70px;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;animation:fadeIn .35s ease;}
+.sec{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--grey);margin:30px 0 14px;display:flex;align-items:center;gap:10px;}
+.sec::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--brd),transparent);}
+.sec:first-child{margin-top:6px;}
+
+/* KPI */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px;}
+.card{background:var(--white);border:1px solid var(--brd);border-radius:var(--r);padding:22px 20px;border-top:4px solid transparent;animation:fadeUp .4s ease both;}
+.card.ct{border-top-color:var(--teal);}.card.cp{border-top-color:var(--pink);}.card.cg{border-top-color:var(--grn);}.card.cy{border-top-color:var(--grey2);}
+.card-lbl{font-size:.82rem;color:var(--grey);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.card-val{font-size:2.8rem;font-weight:700;line-height:1;letter-spacing:-.03em;}
+.vt{color:var(--teal);}.vp{color:var(--pink);}.vg{color:var(--grn);}.vy{color:var(--grey);}
+.card-sub{font-size:.85rem;color:var(--grey);margin-top:7px;line-height:1.45;}
+.delta{font-size:.88rem;font-weight:700;margin-top:10px;}
+.du{color:var(--grn);}.dd{color:var(--pink);}
+.dn{color:var(--grey);}
+
+.ccrd{background:var(--white);border:1px solid var(--brd);border-radius:var(--r);padding:22px;margin-bottom:14px;box-shadow:0 2px 12px rgba(1,155,171,.06);animation:fadeUp .4s ease both;}
+.ccrd h3{font-size:1.05rem;font-weight:700;margin-bottom:4px;}
+.ccrd .cs{font-size:.88rem;color:var(--grey);margin-bottom:16px;line-height:1.5;}
+.cwrap{position:relative;height:270px;}
+.leg{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px;}
+.li{display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:500;}
+.ld{width:13px;height:13px;border-radius:4px;flex-shrink:0;}
+.svgc{position:absolute;inset:0;}
+.svgc svg{width:100%;height:100%;display:block;overflow:visible;}
+.svgc text{font-family:inherit;}
+.ctip{position:absolute;pointer-events:none;background:#fff;border:1px solid var(--brd);border-radius:8px;padding:8px 12px;font-size:.88rem;box-shadow:0 4px 16px rgba(0,0,0,.1);white-space:nowrap;opacity:0;transition:opacity .12s;z-index:5;}
+.ctip b{display:block;margin-bottom:3px;color:var(--black);}
+.ctip div{display:flex;align-items:center;gap:6px;color:var(--grey);}
+.ctip i{width:10px;height:10px;border-radius:3px;display:inline-block;}
+.chart-note{font-size:.88rem;color:var(--grey);margin-top:12px;padding:9px 13px;background:#f5fbfc;border-radius:8px;border-left:3px solid var(--teal2);line-height:1.55;}
+
+/* TRANSITION FLOW */
+.hero-msg{background:linear-gradient(120deg,var(--tealD),var(--teal));color:#fff;border-radius:var(--r);padding:26px 26px;margin-bottom:16px;animation:fadeUp .4s ease both;}
+.hero-msg .big{font-size:clamp(1.25rem,3.2vw,1.75rem);font-weight:700;line-height:1.35;}
+.hero-msg .small{font-size:.95rem;opacity:.9;margin-top:10px;line-height:1.55;}
+.flow{display:grid;grid-template-columns:150px 1fr;gap:0 16px;align-items:center;}
+.flow .rl{font-size:.95rem;font-weight:700;line-height:1.3;}
+.flow .rl small{display:block;font-weight:400;color:var(--grey);font-size:.82rem;margin-top:2px;}
+.bar{display:flex;height:64px;gap:3px;}
+.seg{border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.25rem;white-space:nowrap;overflow:hidden;transform-origin:left;animation:grow .8s cubic-bezier(.2,.7,.2,1) both;position:relative;}
+.seg small{font-weight:500;font-size:.8rem;margin-left:6px;opacity:.92;}
+.s-cont{background:var(--teal);}
+.s-out{background:repeating-linear-gradient(135deg,#bdbdbc 0 7px,#b0b0af 7px 14px);color:#3a3a3a;}
+.s-new{background:var(--grn);}
+.link{height:46px;position:relative;}
+.link .band{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(180deg,rgba(1,155,171,.25),rgba(1,155,171,.12));border-left:2px solid rgba(1,155,171,.35);border-right:2px solid rgba(1,155,171,.35);display:flex;align-items:center;justify-content:center;color:var(--tealD);font-weight:700;font-size:.92rem;}
+.flow-leg{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px;font-size:.92rem;}
+.flow-leg .li .ld{width:16px;height:16px;}
+
+.ages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.age{background:var(--white);border:1px solid var(--brd);border-radius:var(--r);padding:20px;animation:fadeUp .4s ease both;}
+.age h4{font-size:1.1rem;margin-bottom:2px;}
+.age .n{font-size:.85rem;color:var(--grey);margin-bottom:16px;}
+.metric{margin-bottom:14px;}
+.metric .lab{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--grey);margin-bottom:6px;}
+.metric .lab b{font-size:1.6rem;letter-spacing:-.02em;}
+.track{height:12px;background:var(--grey3);border-radius:6px;overflow:hidden;}
+.fill{height:12px;border-radius:6px;transform-origin:left;animation:grow .9s ease both;}
+.age .facts{font-size:.85rem;color:var(--grey);line-height:1.6;border-top:1px solid var(--brd);padding-top:10px;}
+.age.hl{border:2px solid var(--grn);}
+
+/* TABLE */
+.twrap{background:var(--white);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;margin-bottom:14px;box-shadow:0 2px 16px rgba(1,155,171,.07);}
+.thdr{padding:18px 20px 12px;border-bottom:1px solid var(--brd);background:linear-gradient(90deg,#f5fbfc,#fff);}
+.thdr h3{font-size:1.02rem;font-weight:700;}
+.thdr p{font-size:.85rem;color:var(--grey);margin-top:3px;}
+.tscroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:.92rem;}
+thead th{background:linear-gradient(180deg,#e4f5f8,#d8eef2);color:var(--grey);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:10px 12px;text-align:center;border-bottom:2px solid var(--brd);}
+thead th:first-child{text-align:left;padding-left:20px;}
+tbody tr:not(:last-child) td{border-bottom:1px solid var(--brd);}
+tbody tr:hover{background:#f3fafb;}
+tbody td{padding:12px;text-align:center;font-variant-numeric:tabular-nums;}
+tbody td:first-child{text-align:left;padding-left:20px;color:var(--grey);font-weight:600;}
+tr.cur{background:linear-gradient(90deg,#daf2f6,#e8f8fb);}
+tr.cur td:first-child{color:var(--black);}
+tr.tot td{font-weight:700;}
+.tdg{color:var(--grn);font-weight:700;}.tdp{color:var(--pink);font-weight:700;}
+
+/* CONCLUSIONS */
+.conc{background:var(--white);border:1px solid var(--brd);border-radius:var(--r);padding:24px;margin-bottom:14px;box-shadow:0 2px 14px rgba(1,155,171,.06);animation:fadeUp .4s ease both;}
+.conc h3{font-size:1.05rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.tag{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.tagt{background:#c7e9ed;color:#014f57;}.tagg{background:#b8edca;color:#015e1e;}.tagp{background:#f9c4d4;color:#8b0030;}.tagy{background:#e9e9e8;color:#3a3a3a;}
+.conc-body{font-size:1.03rem;line-height:1.85;color:var(--grey);}
+.conc-body strong{color:var(--black);}
+.conc-body ul{padding-left:20px;}
+.conc-body li{margin-bottom:6px;}
+.srow{display:flex;gap:10px;margin:14px 0 2px;flex-wrap:wrap;}
+.spill{background:linear-gradient(145deg,#f4fbfc,#edf7f9);border:1px solid var(--brd);border-radius:9px;padding:10px 18px;font-size:.95rem;color:var(--grey);line-height:1.35;}
+.spill span{font-weight:700;font-size:1.45rem;display:block;}
+.st{color:var(--teal);}.sg{color:var(--grn);}.sp{color:var(--pink);}
+.dl a{display:inline-block;margin:4px 8px 4px 0;padding:7px 14px;border:1.5px solid var(--brd);border-radius:8px;color:var(--tealD);text-decoration:none;font-size:.9rem;font-weight:600;background:#fff;}
+.dl a:hover{border-color:var(--teal2);}
+
+@media(max-width:760px){
+  .ages{grid-template-columns:1fr;}
+  .flow{grid-template-columns:1fr;}
+  .flow .rl{margin:8px 0 6px;}
+  .link{height:34px;}
+  .seg{font-size:1rem;}.seg small{display:none;}
+  .cwrap{height:220px;}
+  .badge{display:none;}
+  .lk2{display:none;}
+}
+
+
+/* сравнение сентябрей */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:1.5em;font-size:16px;}
+.cmp-panel{background:#fafdfd;border:1px solid var(--brd);border-radius:12px;padding:1em 1.1em .8em;}
+.cmp-h{display:flex;align-items:center;gap:.5em;font-weight:700;font-size:1em;margin-bottom:.6em;}
+.cmp-h i{width:.8em;height:.8em;border-radius:.2em;display:inline-block;}
+.cmp-cols{display:flex;gap:1em;height:13em;align-items:flex-end;}
+.cmp-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.cmp-d{font-size:.85em;font-weight:700;border-radius:1em;padding:.1em .6em;margin-bottom:.3em;}
+.cmp-d.up{background:#d9f3e2;color:#03782a;}.cmp-d.down{background:#fbdbe5;color:#a8003b;}
+.cmp-v{font-size:1.9em;font-weight:800;letter-spacing:-.02em;color:var(--grey);line-height:1.1;margin-bottom:.25em;}
+.cmp-bw{flex:1;width:70%;position:relative;}
+.cmp-bar{position:absolute;left:0;right:0;bottom:0;border-radius:.35em .35em .15em .15em;transform-origin:bottom;animation:growY .8s ease both;}
+.cmp-y{font-size:.85em;color:var(--grey);margin-top:.45em;white-space:nowrap;}
+.cmp-col.cur .cmp-y{color:var(--black);font-weight:700;}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.agesub{display:block;font-size:.8rem;font-weight:500;color:var(--grey);margin-top:2px;}
+.s-age .agesub{font-size:2.1vmin;margin-top:.4vmin;}
+.s-cmp{font-size:2.5vmin;margin-top:3.5vmin;gap:4vw;}
+.s-cmp .cmp-panel{background:#fff;border-radius:2vmin;box-shadow:0 1vmin 4vmin rgba(1,155,171,.08);padding:2.4vmin 3vmin 2vmin;}
+.s-cmp .cmp-cols{height:31vh;}
+.s-cmp .cmp-v{font-size:3em;}
+.s-foot{margin-top:2.4vmin;font-size:2.8vmin;color:var(--grey);}
+.s-foot b{color:var(--black);}
+@media(max-width:760px){.cmp{grid-template-columns:1fr;font-size:14px;}.cmp-cols{height:11em;}}
+
+/* ═══════════ РЕЖИМ ПОКАЗА ═══════════ */
+#show{position:fixed;inset:0;z-index:1000;background:linear-gradient(160deg,#f0fafb 0%,#fff 55%,#fdf0f5 100%);display:none;overflow:hidden;}
+body.showing #show{display:block;}
+body.showing{overflow:hidden;}
+.slide{position:absolute;inset:0;padding:var(--safe,20vh) 7vw 13vh;display:flex;flex-direction:column;justify-content:flex-start;opacity:0;pointer-events:none;transition:opacity .45s ease,transform .45s ease;transform:translateY(2vh);}
+.slide.on{opacity:1;pointer-events:auto;transform:none;}
+.s-kicker{font-size:2.3vmin;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:1.6vmin;}
+.s-title{font-size:5.4vmin;font-weight:800;line-height:1.15;letter-spacing:-.02em;max-width:85vw;}
+.s-title em{font-style:normal;color:var(--teal);}
+.s-title .g{color:var(--grn);}
+.s-sub{font-size:2.9vmin;color:var(--grey);margin-top:2vmin;line-height:1.45;max-width:80vw;}
+.s-row{display:flex;gap:3.5vw;margin-top:5vmin;flex-wrap:nowrap;}
+.s-num{flex:1;background:#fff;border-radius:2.2vmin;padding:3.2vmin 3vmin;border:1px solid var(--brd);border-top:1vmin solid var(--teal);box-shadow:0 1vmin 4vmin rgba(1,155,171,.10);}
+.s-num .v{font-size:12vmin;font-weight:800;line-height:1;letter-spacing:-.04em;}
+.s-num .l{font-size:2.8vmin;color:var(--black);font-weight:600;margin-top:1.2vmin;}
+.s-num .d{font-size:2.5vmin;font-weight:700;margin-top:1.2vmin;}
+.s-num.g{border-top-color:var(--grn);}.s-num.p{border-top-color:var(--pink);}.s-num.y{border-top-color:var(--grey2);}
+
+.s-flow{margin-top:5vmin;display:grid;grid-template-columns:22vw 1fr;gap:0 2vw;align-items:center;}
+.s-flow .rl{font-size:3vmin;font-weight:700;line-height:1.2;}
+.s-flow .rl small{display:block;font-size:2.2vmin;color:var(--grey);font-weight:500;}
+.s-flow .bar{height:11vmin;gap:.5vmin;}
+.s-flow .seg{font-size:4.6vmin;border-radius:1.2vmin;}
+.s-flow .seg small{font-size:2.3vmin;}
+.s-flow .link{height:8vmin;}
+.s-flow .link .band{font-size:2.8vmin;}
+
+.s-ages{display:grid;grid-template-columns:repeat(3,1fr);gap:3vw;margin-top:5vmin;}
+.s-age{background:#fff;border-radius:2.2vmin;padding:3vmin;border:1px solid var(--brd);box-shadow:0 1vmin 4vmin rgba(1,155,171,.08);}
+.s-age h4{font-size:3.6vmin;margin-bottom:2.4vmin;}
+.s-age .row{margin-bottom:2.4vmin;}
+.s-age .row .lab{display:flex;justify-content:space-between;align-items:baseline;font-size:2.4vmin;color:var(--grey);margin-bottom:1vmin;}
+.s-age .row .lab b{font-size:6vmin;letter-spacing:-.03em;}
+.s-age .track{height:1.8vmin;border-radius:1vmin;}
+.s-age .fill{height:1.8vmin;border-radius:1vmin;}
+
+.s-bars{display:flex;align-items:flex-end;gap:5vw;margin-top:4vmin;height:40vh;}
+.s-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.s-col .tot{font-size:7vmin;font-weight:800;letter-spacing:-.03em;margin-bottom:1vmin;}
+.s-col .stack{width:62%;display:flex;flex-direction:column;gap:.5vmin;}
+.s-col .stack div{border-radius:1vmin;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:2.6vmin;}
+.s-col .yr{font-size:3vmin;font-weight:700;margin-top:1.4vmin;}
+.s-col.cur .yr{color:var(--teal);}
+
+.s-list{margin-top:4vmin;display:flex;flex-direction:column;gap:2.6vmin;}
+.s-list div{font-size:3.4vmin;line-height:1.35;padding-left:5vmin;position:relative;}
+.s-list div::before{content:'';position:absolute;left:0;top:1.1vmin;width:2.6vmin;height:2.6vmin;border-radius:50%;background:var(--teal);}
+.s-list div.g::before{background:var(--grn);}.s-list div.y::before{background:var(--grey2);}
+.s-list b{color:var(--black);}
+
+.s-legend{display:flex;gap:3vw;margin-top:3vmin;font-size:2.4vmin;color:var(--grey);}
+.s-legend span{display:flex;align-items:center;gap:1vmin;}
+.s-legend i{width:2.4vmin;height:2.4vmin;border-radius:.6vmin;display:inline-block;}
+
+.s-nav{position:absolute;left:0;right:0;bottom:0;height:9vh;display:flex;align-items:center;justify-content:space-between;padding:0 3vw;font-size:1.9vmin;color:var(--grey);border-top:1px solid var(--brd);background:rgba(255,255,255,.75);backdrop-filter:blur(6px);}
+.s-nav .brand{display:flex;align-items:center;gap:1.2vmin;font-weight:700;color:var(--tealD);}
+.s-nav .brand .bl{width:4.6vmin;height:4.6vmin;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4vmin;font-weight:800;}
+.s-help{position:absolute;left:50%;bottom:2vh;z-index:3;transform:translateX(-50%);background:var(--black);color:#fff;border-radius:1.4vmin;padding:1.4vmin 2.4vmin;font-size:2vmin;opacity:0;transition:opacity .4s;pointer-events:none;white-space:nowrap;}
+.s-help.on{opacity:.88;}
+.dots{display:flex;gap:1vmin;}
+.dots button{width:1.6vmin;height:1.6vmin;border-radius:50%;border:none;background:var(--teal3);cursor:pointer;padding:0;}
+.dots button.on{background:var(--teal);transform:scale(1.3);}
+.ctl{display:flex;gap:.8vmin;align-items:center;}
+.ctl button{background:#fff;border:1px solid var(--brd);border-radius:1vmin;padding:.8vmin 1.4vmin;font:inherit;color:var(--grey);cursor:pointer;}
+.ctl button:hover{border-color:var(--teal2);color:var(--tealD);}
+.safe-hint{position:absolute;left:0;right:0;top:0;height:var(--safe,20vh);border-bottom:2px dashed rgba(229,0,79,.5);background:rgba(229,0,79,.05);display:none;align-items:flex-end;justify-content:center;padding-bottom:1vmin;font-size:2vmin;color:var(--pink);}
+#show.calib .safe-hint{display:flex;}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-inner">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="logo">ЦЛП</div>
+      <div>
+        <h1>Контрактный отдел — сентябрь 2026</h1>
+        <div class="hdr-sub">Начало учебного года 2026–27</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="badge">466 чел.</div>
+      <button class="show-btn" onclick="openShow(0)" title="Крупные слайды для показа на зуме">▶ Режим показа</button>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="overview">Обзор</button>
+    <button class="tab-btn hot" data-tab="transition">Переход между годами</button>
+    <button class="tab-btn" data-tab="dynamics">Динамика</button>
+    <button class="tab-btn" data-tab="table">Таблицы</button>
+    <button class="tab-btn" data-tab="conclusions">Выводы и методика</button>
+  </nav>
+</div>
+
+<main>
+
+<!-- ══ ОБЗОР ══ -->
+<div class="tab-panel active" id="tab-overview">
+  <div class="sec">Сентябрь 2026</div>
+  <div class="cards">
+    <div class="card cp">
+      <div class="card-lbl">Первичный приём</div>
+      <div class="card-val vp">78</div>
+      <div class="card-sub">человек впервые пришли на приём</div>
+      <div class="delta dd">▼ на 20% меньше, чем в сентябре 2025 (98)</div>
+    </div>
+    <div class="card ct">
+      <div class="card-lbl">Занятия и консультации</div>
+      <div class="card-val vt">388</div>
+      <div class="card-sub">339 занимаются регулярно, 49 пришли только на консультации</div>
+      <div class="delta du">▲ на 3% больше, чем в сентябре 2025 (377)</div>
+    </div>
+    <div class="card cg">
+      <div class="card-lbl">Всего человек</div>
+      <div class="card-val vg">466</div>
+      <div class="card-sub">дети, подростки, молодые люди и взрослые</div>
+      <div class="delta dd">▼ на 2% меньше, чем в сентябре 2025 (475)</div>
+    </div>
+  </div>
+
+  <div class="sec">Три сентября подряд</div>
+  <div class="ccrd">
+    <h3>Как менялся сентябрь за три года</h3>
+    <div class="cs">Два показателя идут в разные стороны, поэтому показываем их отдельно.</div>
+    <div class="cmp" id="cmpMain"></div>
+    <div class="chart-note">Занятий и консультаций от сентября к сентябрю становится больше: 374 → 377 → 388. Первичный приём после прошлогоднего подъёма снизился до 78. Поэтому общее число (466) оказалось между двумя прошлыми сентябрями: выше, чем в 2024 году (460), но ниже, чем в 2025-м (475).</div>
+  </div>
+
+  <div class="sec">Состав регулярных занятий</div>
+  <div class="cards">
+    <div class="card ct">
+      <div class="card-lbl">Продолжили занятия</div>
+      <div class="card-val vt">266</div>
+      <div class="card-sub">62% из 431 человека, регулярно занимавшегося с января по июнь</div>
+    </div>
+    <div class="card cg">
+      <div class="card-lbl">Новички в регулярных занятиях</div>
+      <div class="card-val vg">73</div>
+      <div class="card-sub">каждый пятый в сентябрьском составе (22%)</div>
+    </div>
+    <div class="card cy">
+      <div class="card-lbl">Не занимаются в сентябре</div>
+      <div class="card-val vy">165</div>
+      <div class="card-sub">из 431 человека, занимавшегося с января по июнь; среди них много малышей, пошедших в школу</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:4px"><button class="show-btn" style="background:var(--teal);color:#fff" onclick="switchTab('transition')">Подробнее о переходе между годами →</button></div>
+</div>
+
+<!-- ══ ПЕРЕХОД ══ -->
+<div class="tab-panel" id="tab-transition">
+  <div class="hero-msg">
+    <div class="big">Шесть из десяти человек, занимавшихся с января по июнь, продолжают заниматься в сентябре, а каждый пятый в сентябрьском составе — новичок.</div>
+    <div class="small">Мы сравнили тех, кто регулярно занимался в 2025–26 учебном году (по данным января–июня), с теми, кто регулярно занимается в сентябре 2026-го. Первичный приём, консультации и диагностика здесь не учитываются: речь идёт только о регулярных занятиях.</div>
+  </div>
+
+  <div class="ccrd">
+    <h3>Как обновился состав регулярных занятий</h3>
+    <div class="cs">Верхняя полоса — все, кто регулярно занимался с января по июнь, нижняя — сентябрьский состав. Бирюзовая часть — одни и те же люди: они занимались весной и продолжают заниматься сейчас.</div>
+    <div class="flow" id="flowMain"></div>
+    <div class="flow-leg">
+      <div class="li"><div class="ld" style="background:var(--teal)"></div>Продолжили занятия</div>
+      <div class="li"><div class="ld" style="background:repeating-linear-gradient(135deg,#bdbdbc 0 4px,#a9a9a8 4px 8px)"></div>Не занимаются в сентябре</div>
+      <div class="li"><div class="ld" style="background:var(--grn)"></div>Новички в регулярных занятиях</div>
+    </div>
+    <div class="chart-note">Сверка: 266 + 165 = 431 (январь–июнь), 266 + 73 = 339 (сентябрь 2026). Из 73 новичков 21 человек знаком с нами и раньше: в прошлом году они приходили на консультации, но регулярно не занимались.</div>
+  </div>
+
+  <div class="sec">По возрасту · полных лет на 1 сентября 2026</div>
+  <div class="ages" id="agesMain"></div>
+  <div class="chart-note" style="margin-top:14px">Чем старше занимающиеся, тем устойчивее состав. Среди молодых людей и взрослых занятия продолжили 73%, среди детей и подростков 9–17 лет — 65%, среди детей до 9 лет — 54%. Младшая группа обновляется сильнее всех: на неё приходятся <strong>две трети новичков</strong> (49 из 73), и здесь же <strong>85 человек</strong> не занимаются в сентябре — многие из них пошли в школу.</div>
+</div>
+
+<!-- ══ ДИНАМИКА ══ -->
+<div class="tab-panel" id="tab-dynamics">
+  <div class="sec">Всего человек по месяцам</div>
+  <div class="ccrd">
+    <h3>Учебные годы 2024–25, 2025–26 и начало 2026–27</h3>
+    <div class="cs">С сентября по июнь. Новый учебный год пока представлен одним месяцем — сентябрём.</div>
+    <div class="leg">
+      <div class="li"><div class="ld" style="background:#A9A9A8"></div>2024–25</div>
+      <div class="li"><div class="ld" style="background:#019BAB"></div>2025–26</div>
+      <div class="li"><div class="ld" style="background:#E5004F"></div>2026–27</div>
+    </div>
+    <div class="cwrap"><div id="cTotal" class="svgc"></div></div>
+    <div class="chart-note">Сентябрь 2026 года (466) немного уступает сентябрю 2025-го (475), но превышает средний уровень прошлого учебного года (453 в месяц) и заметно выше июня (398): после лета дети и взрослые вернулись на занятия.</div>
+  </div>
+  <div class="sec">Занятия и консультации по месяцам</div>
+  <div class="ccrd">
+    <div class="leg">
+      <div class="li"><div class="ld" style="background:#A9A9A8"></div>2024–25</div>
+      <div class="li"><div class="ld" style="background:#019BAB"></div>2025–26</div>
+      <div class="li"><div class="ld" style="background:#E5004F"></div>2026–27</div>
+    </div>
+    <div class="cwrap"><div id="cLess" class="svgc"></div></div>
+    <div class="chart-note">В сентябре на занятиях и консультациях 388 человек. Это больше, чем в начале каждого из двух предыдущих учебных лет.</div>
+  </div>
+</div>
+
+<!-- ══ ТАБЛИЦЫ ══ -->
+<div class="tab-panel" id="tab-table">
+  <div class="twrap">
+    <div class="thdr"><h3>Сравнение сентябрей</h3><p>Изменения указаны относительно сентября предыдущего года</p></div>
+    <div class="tscroll"><table>
+      <thead><tr><th>Месяц</th><th>Первичный приём</th><th>Изменение</th><th>Занятия и консультации</th><th>Изменение</th><th>Всего</th><th>Изменение</th></tr></thead>
+      <tbody>
+        <tr><td>Сентябрь 2024</td><td>86</td><td>—</td><td>374</td><td>—</td><td>460</td><td>—</td></tr>
+        <tr><td>Сентябрь 2025</td><td>98</td><td class="tdg">+12 (+14%)</td><td>377</td><td class="tdg">+3 (+1%)</td><td>475</td><td class="tdg">+15 (+3%)</td></tr>
+        <tr class="cur"><td>Сентябрь 2026 ★</td><td>78</td><td class="tdp">−20 (−20%)</td><td>388</td><td class="tdg">+11 (+3%)</td><td>466</td><td class="tdp">−9 (−2%)</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="twrap">
+    <div class="thdr"><h3>Переход в регулярных занятиях по возрасту</h3><p>Каждый человек учтён один раз · возраст в полных годах на 1 сентября 2026</p></div>
+    <div class="tscroll"><table>
+      <thead><tr><th>Группа</th><th>Занимались в январе–июне 2026</th><th>Продолжили</th><th>Не занимаются в сентябре</th><th>Новички</th><th>Занимаются в сентябре 2026</th><th>Доля продолживших</th><th>Доля новичков в сентябре</th></tr></thead>
+      <tbody id="ageTable"></tbody>
+    </table></div>
+  </div>
+
+  <div class="twrap">
+    <div class="thdr"><h3>Учебный год 2025–26 по месяцам</h3><p>Данные детского табеля, как в летнем отчёте</p></div>
+    <div class="tscroll"><table>
+      <thead><tr><th>Месяц</th><th>Первичный 24–25</th><th>Первичный 25–26</th><th>Занятия 24–25</th><th>Занятия 25–26</th><th>Всего 24–25</th><th>Всего 25–26</th></tr></thead>
+      <tbody id="monTable"></tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ══ ВЫВОДЫ ══ -->
+<div class="tab-panel" id="tab-conclusions">
+  <div class="sec">Ключевые выводы · сентябрь 2026</div>
+
+  <div class="conc">
+    <h3>Всего человек <span class="tag tagp">−2% к сентябрю 2025</span></h3>
+    <div class="conc-body">В сентябре помощь ЦЛП получили <strong>466 человек</strong>: 78 пришли на первичный приём, 388 — на занятия и консультации. Это на 9 человек меньше, чем в сентябре 2025 года (475), и на 6 больше, чем в сентябре 2024-го (460).
+      <div class="srow"><div class="spill"><span class="sg">466</span>сентябрь 2026</div><div class="spill"><span>475</span>сентябрь 2025</div><div class="spill"><span>460</span>сентябрь 2024</div></div>
+    </div>
+  </div>
+
+  <div class="conc">
+    <h3>Занятия и консультации <span class="tag tagg">+3% к сентябрю 2025</span></h3>
+    <div class="conc-body">На занятиях и консультациях <strong>388 человек</strong>, больше, чем в каждом из двух предыдущих сентябрей (377 и 374). 339 из них занимаются регулярно, ещё 49 пришли только на консультации. Общее число снизилось исключительно из-за первичного приёма: <strong>78 человек против 98</strong> годом ранее.</div>
+  </div>
+
+  <div class="conc">
+    <h3>Сохранение состава <span class="tag tagt">62% продолжили</span></h3>
+    <div class="conc-body">С января по июнь регулярно занимался <strong>431 человек</strong> — это все, кто ходил на занятия хотя бы месяц. В сентябре <strong>266</strong> из них продолжают заниматься, ещё <strong>165</strong> в сентябре не занимаются. Для младшей группы это во многом естественный итог работы: дети пошли в школу.
+      <div class="srow"><div class="spill"><span class="st">266</span>продолжили</div><div class="spill"><span>165</span>не занимаются в сентябре</div><div class="spill"><span class="st">62%</span>доля продолживших</div></div>
+    </div>
+  </div>
+
+  <div class="conc">
+    <h3>Обновление состава <span class="tag tagg">22% новичков</span></h3>
+    <div class="conc-body"><strong>73 человека</strong> начали регулярные занятия в сентябре, хотя в прошлом учебном году регулярно не занимались. Это каждый пятый в сентябрьском составе (22% из 339). 21 из них знаком с нами и раньше: в прошлом году они приходили на консультации.</div>
+  </div>
+
+  <div class="conc">
+    <h3>Возраст <span class="tag tagt">гипотеза подтвердилась</span></h3>
+    <div class="conc-body">
+      <ul>
+        <li><strong>Молодые люди и взрослые (18+)</strong> — самый устойчивый состав: занятия продолжили 73% (65 из 89), доля новичков в сентябре — 12% (9 из 74).</li>
+        <li><strong>Дети и подростки 9–17 лет:</strong> продолжили 65% (102 из 158), новичков 13% (15 из 117).</li>
+        <li><strong>Дети до 9 лет</strong> — самое заметное обновление: продолжили 54% (99 из 184), а новичком оказался каждый третий (49 из 148, 33%). Многие из тех, кто не занимается в сентябре, пошли в школу.</li>
+      </ul>
+      Данные подтверждают обе гипотезы: состав молодых людей и взрослых самый стабильный, а сильнее всего он обновляется у младших детей.
+    </div>
+  </div>
+
+  <div class="sec">Как считали</div>
+  <div class="conc">
+    <h3>Методика и допущения <span class="tag tagy">для сверки</span></h3>
+    <div class="conc-body" style="font-size:.95rem;line-height:1.75">
+      <ul>
+        <li><strong>Занятия и консультации в сентябре 2026:</strong> по отчёту «Этапы контрактов». Человек учитывается, если у него есть этап договора на сентябрь 2026 года. Колонка «Оказаны услуги» в расчёте не используется.</li>
+        <li><strong>Первичный приём в сентябре 2026:</strong> 78 человек, по данным ЦЛП. В отчёте по контрактам первичный приём не отражается.</li>
+        <li><strong>Сентябри 2024 и 2025 годов и помесячные данные:</strong> из летнего отчёта (детский табель). Июнь 2026 — 328 человек.</li>
+        <li><strong>Состав 2025–26 учебного года:</strong> все, у кого был хотя бы один регулярный этап с января по июнь 2026 года. Это список за полгода, а не состав одного месяца, поэтому он всегда больше состава любого отдельного месяца — в том числе сентября. Дети и взрослые занимаются у нас весь год, поэтому считаем, что занимавшиеся с января занимались и осенью. Июль и август в расчёт не входят.</li>
+        <li><strong>Что считается регулярными занятиями:</strong> этапы с пустым «Типом интенсивности» и с кодами интенсивных программ (2_1, 4_2, 8_6 и т. п.). КОНС — консультации, ADOS и LEIT — диагностика. Они к регулярным занятиям не относятся.</li>
+        <li><strong>Как отличали людей друг от друга:</strong> по фамилии, имени, отчеству и дате рождения. Регистр, лишние пробелы и «ё/е» приведены к единому виду. Нашлись 4 пары с одной датой рождения и похожими ФИО — это двойни, они учтены как разные люди.</li>
+        <li><strong>Сопоставимость источников:</strong> в январе–июне 2026 года отчёт по контрактам показывал на 1–19 человек в месяц больше, чем табель. Поэтому прирост занятий в сентябре (+11) отчасти может объясняться разницей источников.</li>
+      </ul>
+      <div class="dl" style="margin-top:10px">Файлы расчёта:
+        <a href="data/transition_summary.csv" download>Сводка по возрасту</a>
+        <a href="data/september_comparison.csv" download>Сравнение сентябрей</a>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- ═══════════ РЕЖИМ ПОКАЗА ═══════════ -->
+<div id="show" aria-label="Режим показа">
+  <div class="s-help" id="sHelp">→ или клик — дальше · ← — назад · ▼ — опустить, если верх закрыт · Esc — выход</div>
+  <div class="safe-hint">Эта зона может быть закрыта панелью зума — важного здесь нет</div>
+
+  <section class="slide">
+    <div class="s-kicker">Контрактный отдел · сентябрь 2026</div>
+    <div class="s-title">В сентябре помощь ЦЛП получили <em>466 человек</em></div>
+    <div class="s-row">
+      <div class="s-num p"><div class="v" style="color:var(--pink)">78</div><div class="l">первичный приём</div><div class="d dd">▼ на 20% меньше, чем год назад</div></div>
+      <div class="s-num"><div class="v" style="color:var(--teal)">388</div><div class="l">занятия и консультации</div><div class="d du">▲ на 3% больше, чем год назад</div></div>
+      <div class="s-num g"><div class="v" style="color:var(--grn)">466</div><div class="l">всего человек</div><div class="d dd">▼ на 2% меньше, чем год назад</div></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="s-kicker">Три сентября подряд</div>
+    <div class="s-title">Занятий и консультаций — <em>больше</em>, первичных приёмов — <span style="color:var(--pink)">меньше</span></div>
+    <div class="cmp s-cmp" id="cmpShow"></div>
+    <div class="s-foot">Всего человек: 460 → 475 → <b>466</b></div>
+  </section>
+
+  <section class="slide">
+    <div class="s-kicker">Переход между учебными годами</div>
+    <div class="s-title"><em>Шесть из десяти</em> продолжили занятия, каждый пятый в сентябре — <span class="g">новичок</span></div>
+    <div class="s-flow" id="flowShow"></div>
+  </section>
+
+  <section class="slide">
+    <div class="s-kicker">Переход по возрасту</div>
+    <div class="s-title">Чем старше, тем устойчивее состав. <em>Младшие дети</em> обновляются сильнее всех</div>
+    <div class="s-ages" id="agesShow"></div>
+  </section>
+
+  <section class="slide">
+    <div class="s-kicker">Итоги сентября</div>
+    <div class="s-title">Главное</div>
+    <div class="s-list">
+      <div><b>466 человек</b> получили помощь в сентябре. На занятиях и консультациях — больше, чем год назад (388 против 377), на первичном приёме — меньше (78 против 98).</div>
+      <div><b>266 из 431</b> человека, занимавшихся с января по июнь, продолжают регулярные занятия — 62%.</div>
+      <div class="g"><b>73 новичка</b> в регулярных занятиях — каждый пятый в сентябрьском составе. Две трети из них — дети до 9 лет.</div>
+      <div class="y"><b>165 человек</b> в сентябре не занимаются — среди малышей многие пошли в школу.</div>
+    </div>
+  </section>
+
+  <div class="s-nav">
+    <div class="brand"><span class="bl">ЦЛП</span>Контрактный отдел · сентябрь 2026</div>
+    <div class="dots" id="dots"></div>
+    <div class="ctl">
+      <span id="pg"></span>
+      <button onclick="safe(-5)" title="Поднять содержимое">▲</button>
+      <button onclick="safe(5)" title="Опустить содержимое ниже, если верх закрыт">▼</button>
+      <button onclick="toggleFS()" title="Во весь экран (F)">⛶</button>
+      <button onclick="closeShow()" title="Выйти (Esc)">✕</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ─── DATA ─── */
+const T = {base:431, cont:266, out:165, neu:73, sep:339};
+const AGES = [
+  {k:'До 9 лет', sub:'дети', full:'Дети до 9 лет', base:184, cont:99, out:85, neu:49, sep:148},
+  {k:'9–17 лет', sub:'дети и подростки', full:'Дети и подростки 9–17 лет', base:158, cont:102, out:56, neu:15, sep:117},
+  {k:'18+',      sub:'молодые люди и взрослые', full:'Молодые люди и взрослые 18+', base:89, cont:65, out:24, neu:9, sep:74},
+];
+const SEPS = [{y:'2024',p:86,l:374},{y:'2025',p:98,l:377},{y:'2026',p:78,l:388}];
+const M=['Сен','Окт','Ноя','Дек','Янв','Фев','Мар','Апр','Май','Июн'];
+const t24=[460,491,524,475,406,467,419,482,412,366], t25=[475,456,435,449,432,477,459,508,438,398];
+const p24=[86,69,103,58,40,70,46,81,41,81], p25=[98,70,49,54,49,65,54,67,51,70];
+const l24=[374,422,411,433,366,397,373,401,371,285], l25=[377,386,386,395,383,412,405,441,387,328];
+const pct=(a,b)=>Math.round(a/b*100);
+
+/* ─── FLOW ─── */
+function flowHTML(d){
+  const w=v=>(v/d.base*100)+'%';
+  return `
+  <div class="rl">Январь–июнь 2026<small>${d.base} человек занимались регулярно хотя бы месяц</small></div>
+  <div class="bar"><div class="seg s-cont" style="width:${w(d.cont)}">${d.cont}<small>продолжили</small></div><div class="seg s-out" style="width:${w(d.out)};animation-delay:.2s">${d.out}<small>не в сентябре</small></div></div>
+  <div></div>
+  <div class="link"><div class="band" style="width:${w(d.cont)}">↓ ${d.cont} — те же люди<span class="lk2">&nbsp;· ${pct(d.cont,d.base)}% от списка января–июня</span></div></div>
+  <div class="rl">Сентябрь 2026<small>${d.sep} человек на регулярных занятиях</small></div>
+  <div class="bar"><div class="seg s-cont" style="width:${w(d.cont)};animation-delay:.35s">${d.cont}<small>продолжили</small></div><div class="seg s-new" style="width:${w(d.neu)};animation-delay:.55s">${d.neu}<small>новички</small></div></div>`;
+}
+document.getElementById('flowMain').innerHTML=flowHTML(T);
+document.getElementById('flowShow').innerHTML=flowHTML(T);
+
+/* ─── AGES ─── */
+function ageCard(a,show){
+  const c=pct(a.cont,a.base), n=pct(a.neu,a.sep);
+  if(show) return `<div class="s-age"><h4>${a.k}<span class="agesub">${a.sub}</span></h4>
+    <div class="row"><div class="lab">продолжили<b style="color:var(--teal)">${c}%</b></div><div class="track"><div class="fill" style="width:${c}%;background:var(--teal)"></div></div></div>
+    <div class="row"><div class="lab">новичков в сентябре<b style="color:var(--grn)">${n}%</b></div><div class="track"><div class="fill" style="width:${n}%;background:var(--grn)"></div></div></div>
+    <div style="font-size:2.2vmin;color:var(--grey)">продолжили ${a.cont} из ${a.base}<br>новичков ${a.neu} из ${a.sep}</div></div>`;
+  return `<div class="age${a.k==='До 9 лет'?' hl':''}"><h4>${a.k}<span class="agesub">${a.sub}</span></h4><div class="n">январь–июнь: ${a.base} · сентябрь: ${a.sep}</div>
+    <div class="metric"><div class="lab">продолжили занятия<b style="color:var(--teal)">${c}%</b></div><div class="track"><div class="fill" style="width:${c}%;background:var(--teal)"></div></div></div>
+    <div class="metric"><div class="lab">доля новичков в сентябре<b style="color:var(--grn)">${n}%</b></div><div class="track"><div class="fill" style="width:${n}%;background:var(--grn)"></div></div></div>
+    <div class="facts">Продолжили — <b>${a.cont}</b>, не занимаются в сентябре — <b>${a.out}</b>, новички — <b>${a.neu}</b></div></div>`;
+}
+document.getElementById('agesMain').innerHTML=AGES.map(a=>ageCard(a,false)).join('');
+document.getElementById('agesShow').innerHTML=AGES.map(a=>ageCard(a,true)).join('');
+document.getElementById('ageTable').innerHTML=[{full:'Всего',...T},...AGES].map((a,i)=>`<tr class="${i?'':'tot'}"><td>${a.full}</td><td>${a.base}</td><td>${a.cont}</td><td>${a.out}</td><td>${a.neu}</td><td>${a.sep}</td><td>${(a.cont/a.base*100).toFixed(1).replace('.',',')}%</td><td>${(a.neu/a.sep*100).toFixed(1).replace('.',',')}%</td></tr>`).join('');
+document.getElementById('monTable').innerHTML=M.map((m,i)=>`<tr><td>${m}</td><td>${p24[i]}</td><td>${p25[i]}</td><td>${l24[i]}</td><td>${l25[i]}</td><td>${t24[i]}</td><td>${t25[i]}</td></tr>`).join('')+
+  `<tr class="cur"><td>Сен 2026 ★</td><td colspan="2">78</td><td colspan="2">388</td><td colspan="2">466</td></tr>`;
+
+/* ─── СРАВНЕНИЕ СЕНТЯБРЕЙ: два показателя отдельно ─── */
+function cmpHTML(){
+  const panel=(title,key,color,colorPast)=>{
+    const vals=SEPS.map(s=>s[key]), max=Math.max(...vals);
+    return `<div class="cmp-panel"><div class="cmp-h"><i style="background:${color}"></i>${title}</div><div class="cmp-cols">`+
+      SEPS.map((s,i)=>{const v=s[key], d=i?v-SEPS[i-1][key]:null, cur=i===SEPS.length-1;
+        return `<div class="cmp-col${cur?' cur':''}">
+          <div class="cmp-d ${d==null?'':(d>=0?'up':'down')}">${d==null?'&nbsp;':(d>0?'+':'−')+Math.abs(d)}</div>
+          <div class="cmp-v" style="${cur?'color:'+color:''}">${v}</div>
+          <div class="cmp-bw"><div class="cmp-bar" style="height:${(v/max*100).toFixed(1)}%;background:${cur?color:colorPast}"></div></div>
+          <div class="cmp-y">сентябрь ${s.y}</div></div>`;}).join('')+`</div></div>`;
+  };
+  return panel('Занятия и консультации','l','#019BAB','#9fd5db')+panel('Первичный приём','p','#E5004F','#f4a9bd');
+}
+document.getElementById('cmpMain').innerHTML=cmpHTML();
+document.getElementById('cmpShow').innerHTML=cmpHTML();
+
+/* ─── TABS ─── */
+function switchTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+id));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  window.scrollTo({top:0});
+}
+document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+
+/* ─── CHARTS (SVG, без внешних библиотек) ─── */
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e;}
+function nice(max){const s=[50,100,200,250,500];for(const v of s){if(max/v<=6)return v;}return 1000;}
+function tipBox(host){let d=host.querySelector('.ctip');if(!d){d=document.createElement('div');d.className='ctip';host.appendChild(d);}return d;}
+function frame(host,ymin,ymax){
+  host.innerHTML='';const W=host.clientWidth||600,H=host.clientHeight||260,L=44,R=12,Tp=14,B=30;
+  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img'},host);
+  const step=nice(ymax-ymin), y0=Math.floor(ymin/step)*step, y1=Math.ceil(ymax/step)*step;
+  const Y=v=>Tp+(H-Tp-B)*(1-(v-y0)/(y1-y0));
+  for(let v=y0;v<=y1;v+=step){el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:'rgba(0,0,0,.07)'},svg);el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':12,fill:'#626261'},svg).textContent=v;}
+  return {svg,W,H,L,R,Tp,B,Y,y0};
+}
+function stackedBars(id,labels,series){
+  const host=document.getElementById(id), tip=tipBox(host.parentNode);
+  const tot=labels.map((_,i)=>series.reduce((s,x)=>s+x.data[i],0));
+  const f=frame(host,0,Math.max(...tot)*1.1), n=labels.length, cw=(f.W-f.L-f.R)/n, bw=Math.min(110,cw*.5);
+  labels.forEach((lab,i)=>{
+    const cx=f.L+cw*i+cw/2; let acc=0;
+    const g=el('g',{},f.svg);
+    series.forEach((s,k)=>{const v=s.data[i];const yTop=f.Y(acc+v),yBot=f.Y(acc);
+      el('rect',{x:cx-bw/2,y:yTop+(k?0:0),width:bw,height:Math.max(0,yBot-yTop-2),rx:4,fill:typeof s.color==='function'?s.color(i):s.color},g);
+      el('text',{x:cx,y:(yTop+yBot)/2+5,'text-anchor':'middle','font-size':14,'font-weight':700,fill:'#fff'},g).textContent=v;acc+=v;});
+    el('text',{x:cx,y:f.Y(acc)-8,'text-anchor':'middle','font-size':16,'font-weight':700,fill:i===n-1?'#019BAB':'#2A2A2A'},g).textContent=acc;
+    el('text',{x:cx,y:f.H-8,'text-anchor':'middle','font-size':14,fill:'#626261'},g).textContent=lab;
+    const hit=el('rect',{x:f.L+cw*i,y:0,width:cw,height:f.H,fill:'transparent'},g);
+    hit.addEventListener('mousemove',ev=>{tip.innerHTML=`<b>${lab}</b>`+series.map(s=>`<div><i style="background:${typeof s.color==='function'?s.color(i):s.color}"></i>${s.name}: <b style="display:inline;margin:0">${s.data[i]}</b></div>`).join('')+`<div>Всего: <b style="display:inline;margin:0">${tot[i]}</b></div>`;
+      const r=host.parentNode.getBoundingClientRect();tip.style.left=Math.min(ev.clientX-r.left+14,r.width-190)+'px';tip.style.top=(ev.clientY-r.top-10)+'px';tip.style.opacity=1;});
+    hit.addEventListener('mouseleave',()=>tip.style.opacity=0);
+  });
+}
+function lines(id,labels,series){
+  const host=document.getElementById(id), tip=tipBox(host.parentNode);
+  const all=series.flatMap(s=>s.data.filter(v=>v!=null));
+  const f=frame(host,Math.min(...all)*0.92,Math.max(...all)*1.04), n=labels.length, cw=(f.W-f.L-f.R)/n, X=i=>f.L+cw*i+cw/2;
+  labels.forEach((lab,i)=>el('text',{x:X(i),y:f.H-8,'text-anchor':'middle','font-size':13,fill:'#626261'},f.svg).textContent=lab);
+  const cross=el('line',{y1:f.Tp,y2:f.H-f.B,stroke:'#C7E9ED','stroke-width':2,opacity:0},f.svg);
+  series.forEach(s=>{
+    const pts=s.data.map((v,i)=>v==null?null:[X(i),f.Y(v)]).filter(Boolean);
+    if(pts.length>1) el('path',{d:'M'+pts.map(p=>p.join(',')).join('L'),fill:'none',stroke:s.color,'stroke-width':s.w||2,'stroke-linejoin':'round'},f.svg);
+    pts.forEach(p=>el('circle',{cx:p[0],cy:p[1],r:s.r||4,fill:s.color,stroke:'#fff','stroke-width':2},f.svg));
+    if(s.label){const p=pts[pts.length-1];el('text',{x:p[0]+12,y:p[1]+5,'font-size':14,'font-weight':700,fill:'#2A2A2A'},f.svg).textContent=s.label;}
+  });
+  const hit=el('rect',{x:f.L,y:0,width:f.W-f.L-f.R,height:f.H,fill:'transparent'},f.svg);
+  hit.addEventListener('mousemove',ev=>{const r=host.getBoundingClientRect();const sx=(ev.clientX-r.left)*(f.W/r.width);const i=Math.max(0,Math.min(n-1,Math.floor((sx-f.L)/cw)));
+    cross.setAttribute('x1',X(i));cross.setAttribute('x2',X(i));cross.setAttribute('opacity',1);
+    tip.innerHTML=`<b>${labels[i]}</b>`+series.filter(s=>s.data[i]!=null).map(s=>`<div><i style="background:${s.color}"></i>${s.name}: <b style="display:inline;margin:0">${s.data[i]}</b></div>`).join('');
+    const pr=host.parentNode.getBoundingClientRect();tip.style.left=Math.min(ev.clientX-pr.left+14,pr.width-170)+'px';tip.style.top=(ev.clientY-pr.top-10)+'px';tip.style.opacity=1;});
+  hit.addEventListener('mouseleave',()=>{tip.style.opacity=0;cross.setAttribute('opacity',0);});
+}
+function drawCharts(){
+  const pad=v=>[v,null,null,null,null,null,null,null,null,null];
+  if(document.getElementById('tab-dynamics').classList.contains('active')){
+    lines('cTotal',M,[{name:'2024–25',data:t24,color:'#A9A9A8'},{name:'2025–26',data:t25,color:'#019BAB',w:2.5},{name:'2026–27',data:pad(466),color:'#E5004F',r:8,label:'466'}]);
+    lines('cLess',M,[{name:'2024–25',data:l24,color:'#A9A9A8'},{name:'2025–26',data:l25,color:'#019BAB',w:2.5},{name:'2026–27',data:pad(388),color:'#E5004F',r:8,label:'388'}]);
+  }
+}
+drawCharts();
+document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>setTimeout(drawCharts,0)));
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(drawCharts,150);});
+
+/* ─── РЕЖИМ ПОКАЗА ─── */
+const slides=[...document.querySelectorAll('.slide')]; let cur=0;
+const dots=document.getElementById('dots');
+dots.innerHTML=slides.map((_,i)=>`<button aria-label="Слайд ${i+1}" onclick="go(${i})"></button>`).join('');
+function readSafe(){try{return +localStorage.getItem('safeTop')||20}catch(e){return 20}}
+let safeTop=readSafe();
+function applySafe(){document.getElementById('show').style.setProperty('--safe',safeTop+'vh');}
+function safe(d){safeTop=Math.max(5,Math.min(40,safeTop+d));applySafe();try{localStorage.setItem('safeTop',safeTop)}catch(e){}
+  const s=document.getElementById('show');s.classList.add('calib');clearTimeout(safe.t);safe.t=setTimeout(()=>s.classList.remove('calib'),1800);}
+function go(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>{
+    const on=k===cur; s.classList.toggle('on',on);
+    if(on) s.querySelectorAll('.seg,.fill').forEach(e=>{e.style.animation='none';e.offsetHeight;e.style.animation='';});
+  });
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===cur));
+  document.getElementById('pg').textContent=(cur+1)+' / '+slides.length;
+  history.replaceState(null,'','#show'+(cur?'-'+(cur+1):''));
+}
+function openShow(i){document.body.classList.add('showing');applySafe();go(i||0);const h=document.getElementById('sHelp');h.classList.add('on');setTimeout(()=>h.classList.remove('on'),4500);}
+function closeShow(){document.body.classList.remove('showing');if(document.fullscreenElement)document.exitFullscreen();history.replaceState(null,'',location.pathname);}
+function toggleFS(){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}
+document.addEventListener('keydown',e=>{
+  if(!document.body.classList.contains('showing')){ if(e.key==='p'||e.key==='з') openShow(0); return; }
+  if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();go(cur+1);}
+  else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(cur-1);}
+  else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
+  else if(e.key==='Escape')closeShow(); else if(e.key==='f'||e.key==='а')toggleFS();
+});
+document.getElementById('show').addEventListener('click',e=>{
+  if(e.target.closest('.s-nav'))return;
+  if(e.clientX>innerWidth*0.35)go(cur+1);else go(cur-1);
+});
+const m=location.hash.match(/^#show(?:-(\d+))?/);
+if(m) openShow(m[1]?(+m[1]-1):0);
+</script>
+</body>
+</html>
