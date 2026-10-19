@@ -169,6 +169,27 @@ tr.tot td{font-weight:700;}
 .s-foot b{color:var(--black);}
 @media(max-width:760px){.cmp{grid-template-columns:1fr;font-size:14px;}.cmp-cols{height:11em;}}
 
+/* состав сентября */
+.comp-bar{height:76px;margin-top:6px;}
+.comp-bar .seg{font-size:1.6rem;}
+.comp-bar .seg small{font-size:.85rem;}
+.abar{display:flex;height:22px;gap:3px;margin:14px 0 12px;}
+.abar .seg{font-size:1.15rem;}
+.alist{font-size:.92rem;color:var(--grey);line-height:1.8;}
+.alist i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;}
+.alist b{color:var(--black);}
+.age .facts{margin-top:10px;}
+table.mini td,table.mini th{padding:9px 10px;}
+.s-comp{margin-top:4vmin;}
+.s-comp .comp-bar{height:16vmin;}
+.s-comp .comp-bar .seg{font-size:6vmin;border-radius:1.4vmin;}
+.s-comp .comp-bar .seg small{font-size:2.6vmin;}
+.s-age .abar{height:4.4vmin;margin:2.4vmin 0;gap:.5vmin;}
+.s-age .abar .seg{font-size:3.4vmin;border-radius:1vmin;}
+.s-age .alist{font-size:2.8vmin;line-height:1.7;white-space:nowrap;}
+.s-age .alist i{width:2vmin;height:2vmin;border-radius:.5vmin;margin-right:1vmin;}
+@media(max-width:760px){.comp-bar{height:56px}.comp-bar .seg{font-size:1.2rem}.comp-bar .seg small{display:none}}
+
 /* ═══════════ РЕЖИМ ПОКАЗА ═══════════ */
 #show{position:fixed;inset:0;z-index:1000;background:linear-gradient(160deg,#f0fafb 0%,#fff 55%,#fdf0f5 100%);display:none;overflow:hidden;}
 body.showing #show{display:block;}
@@ -208,7 +229,7 @@ body.showing{overflow:hidden;}
 .s-bars{display:flex;align-items:flex-end;gap:5vw;margin-top:4vmin;height:40vh;}
 .s-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
 .s-col .tot{font-size:7vmin;font-weight:800;letter-spacing:-.03em;margin-bottom:1vmin;}
-.s-col .stack{width:62%;display:flex;flex-direction:column;gap:.5vmin;}
+.s-col .stack{width:60%;display:flex;flex-direction:column;gap:.5vmin;}
 .s-col .stack div{border-radius:1vmin;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:2.6vmin;}
 .s-col .yr{font-size:3vmin;font-weight:700;margin-top:1.4vmin;}
 .s-col.cur .yr{color:var(--teal);}
@@ -256,7 +277,7 @@ body.showing{overflow:hidden;}
   </div>
   <nav class="tabs">
     <button class="tab-btn active" data-tab="overview">Обзор</button>
-    <button class="tab-btn hot" data-tab="transition">Переход между годами</button>
+    <button class="tab-btn hot" data-tab="transition">Состав сентября</button>
     <button class="tab-btn" data-tab="dynamics">Динамика</button>
     <button class="tab-btn" data-tab="table">Таблицы</button>
     <button class="tab-btn" data-tab="conclusions">Выводы</button>
@@ -297,49 +318,59 @@ body.showing{overflow:hidden;}
     <div class="chart-note">Занятий и консультаций от сентября к сентябрю становится больше: 374 → 377 → 388. Первичный приём после прошлогоднего подъёма снизился до 78. Поэтому общее число (466) оказалось между двумя прошлыми сентябрями: выше, чем в 2024 году (460), но ниже, чем в 2025-м (475).</div>
   </div>
 
-  <div class="sec">Состав регулярных занятий</div>
+  <div class="sec">Состав регулярных занятий в сентябре</div>
   <div class="cards">
     <div class="card ct">
-      <div class="card-lbl">Продолжили занятия</div>
+      <div class="card-lbl">Регулярно занимаются</div>
+      <div class="card-val vt">339</div>
+      <div class="card-sub">человек на регулярных занятиях в сентябре</div>
+    </div>
+    <div class="card ct">
+      <div class="card-lbl">Занимались у нас и раньше</div>
       <div class="card-val vt">266</div>
-      <div class="card-sub">62% из 431 человека, регулярно занимавшегося с января по июнь</div>
+      <div class="card-sub">78% сентябрьского состава — занимались и в прошлом учебном году</div>
     </div>
     <div class="card cg">
-      <div class="card-lbl">Новички в регулярных занятиях</div>
+      <div class="card-lbl">Новички</div>
       <div class="card-val vg">73</div>
-      <div class="card-sub">каждый пятый в сентябрьском составе (22%)</div>
-    </div>
-    <div class="card cy">
-      <div class="card-lbl">Не занимаются в сентябре</div>
-      <div class="card-val vy">165</div>
-      <div class="card-sub">из 431 человека, занимавшегося с января по июнь; среди них много малышей, пошедших в школу</div>
+      <div class="card-sub">22% — каждый пятый в сентябрьском составе</div>
     </div>
   </div>
-  <div style="text-align:center;margin-top:4px"><button class="show-btn" style="background:var(--teal);color:#fff" onclick="switchTab('transition')">Подробнее о переходе между годами →</button></div>
+  <div style="text-align:center;margin-top:4px"><button class="show-btn" style="background:var(--teal);color:#fff" onclick="switchTab('transition')">Подробнее о составе →</button></div>
 </div>
 
 <!-- ══ ПЕРЕХОД ══ -->
 <div class="tab-panel" id="tab-transition">
   <div class="hero-msg">
-    <div class="big">Шесть из десяти человек, занимавшихся с января по июнь, продолжают заниматься в сентябре, а каждый пятый в сентябрьском составе — новичок.</div>
-    <div class="small">Мы сравнили тех, кто регулярно занимался в 2025–26 учебном году (по данным января–июня), с теми, кто регулярно занимается в сентябре 2026-го. Первичный приём, консультации и диагностика здесь не учитываются: речь идёт только о регулярных занятиях.</div>
+    <div class="big">Почти восемь из десяти человек в сентябрьском составе занимались у нас и в прошлом учебном году, каждый пятый — новичок.</div>
+    <div class="small">Речь о регулярных занятиях: в сентябре 2026 года их посещают 339 человек. «Занимались и раньше» — те, у кого были регулярные занятия хотя бы в одном месяце с января по июнь. Первичный приём, консультации и диагностика здесь не учитываются.</div>
   </div>
 
   <div class="ccrd">
-    <h3>Как обновился состав регулярных занятий</h3>
-    <div class="cs">Верхняя полоса — все, кто регулярно занимался с января по июнь, нижняя — сентябрьский состав. Бирюзовая часть — одни и те же люди: они занимались весной и продолжают заниматься сейчас.</div>
-    <div class="flow" id="flowMain"></div>
+    <h3>Из кого состоит сентябрьский состав</h3>
+    <div class="cs">339 человек на регулярных занятиях в сентябре 2026 года</div>
+    <div class="comp" id="compMain"></div>
     <div class="flow-leg">
-      <div class="li"><div class="ld" style="background:var(--teal)"></div>Продолжили занятия</div>
-      <div class="li"><div class="ld" style="background:repeating-linear-gradient(135deg,#bdbdbc 0 4px,#a9a9a8 4px 8px)"></div>Не занимаются в сентябре</div>
+      <div class="li"><div class="ld" style="background:var(--teal)"></div>Занимались у нас и в прошлом учебном году</div>
       <div class="li"><div class="ld" style="background:var(--grn)"></div>Новички в регулярных занятиях</div>
     </div>
-    <div class="chart-note">Сверка: 266 + 165 = 431 (январь–июнь), 266 + 73 = 339 (сентябрь 2026). Из 73 новичков 21 человек знаком с нами и раньше: в прошлом году они приходили на консультации, но регулярно не занимались.</div>
+    <div class="chart-note">Из 73 новичков 21 человек знаком с нами и раньше: в прошлом году они приходили на консультации, но регулярно не занимались.</div>
   </div>
 
   <div class="sec">По возрасту · полных лет на 1 сентября 2026</div>
   <div class="ages" id="agesMain"></div>
-  <div class="chart-note" style="margin-top:14px">Чем старше занимающиеся, тем устойчивее состав. Среди молодых людей и взрослых занятия продолжили 73%, среди детей и подростков 9–17 лет — 65%, среди детей до 9 лет — 54%. Младшая группа обновляется сильнее всех: на неё приходятся <strong>две трети новичков</strong> (49 из 73), и здесь же <strong>85 человек</strong> не занимаются в сентябре — многие из них пошли в школу.</div>
+  <div class="chart-note" style="margin-top:14px">Чем старше группа, тем стабильнее состав: у молодых людей и взрослых 88% сентябрьского состава занимались у нас и раньше, у детей и подростков 9–17 лет — 87%, у детей до 9 лет — 67%. Младшая группа обновляется сильнее всех: многие прошлогодние малыши пошли в школу, и на эту группу приходятся <strong>две трети новичков</strong> (49 из 73).</div>
+
+  <div class="sec">Для справки</div>
+  <div class="ccrd">
+    <h3>Почему список за полгода больше состава любого месяца</h3>
+    <div class="cs">В течение учебного года одни начинают заниматься, другие заканчивают. Поэтому за полгода набирается больше людей, чем занимается в каждый отдельный месяц.</div>
+    <div class="tscroll"><table class="mini">
+      <thead><tr><th></th><th>Янв</th><th>Фев</th><th>Мар</th><th>Апр</th><th>Май</th><th>Июн</th><th>За январь–июнь</th></tr></thead>
+      <tbody><tr><td>На регулярных занятиях</td><td>363</td><td>382</td><td>383</td><td>392</td><td>364</td><td>295</td><td><b>431</b></td></tr></tbody>
+    </table></div>
+    <div class="chart-note">Из 431 человека, занимавшегося хотя бы месяц с января по июнь, 266 продолжают заниматься в сентябре. Остальные 165 в сентябре у нас не занимаются; 85 из них — дети до 9 лет, многие из которых пошли в школу.</div>
+  </div>
 </div>
 
 <!-- ══ ДИНАМИКА ══ -->
@@ -383,9 +414,9 @@ body.showing{overflow:hidden;}
   </div>
 
   <div class="twrap">
-    <div class="thdr"><h3>Переход в регулярных занятиях по возрасту</h3><p>Каждый человек учтён один раз · возраст в полных годах на 1 сентября 2026</p></div>
+    <div class="thdr"><h3>Состав регулярных занятий в сентябре по возрасту</h3><p>Каждый человек учтён один раз · возраст в полных годах на 1 сентября 2026</p></div>
     <div class="tscroll"><table>
-      <thead><tr><th>Группа</th><th>Занимались в январе–июне 2026</th><th>Продолжили</th><th>Не занимаются в сентябре</th><th>Новички</th><th>Занимаются в сентябре 2026</th><th>Доля продолживших</th><th>Доля новичков в сентябре</th></tr></thead>
+      <thead><tr><th>Группа</th><th>Регулярно занимаются в сентябре</th><th>Занимались и раньше</th><th>Новички</th><th>Доля занимавшихся раньше</th><th>Доля новичков</th></tr></thead>
       <tbody id="ageTable"></tbody>
     </table></div>
   </div>
@@ -416,26 +447,21 @@ body.showing{overflow:hidden;}
   </div>
 
   <div class="conc">
-    <h3>Сохранение состава <span class="tag tagt">62% продолжили</span></h3>
-    <div class="conc-body">С января по июнь регулярно занимался <strong>431 человек</strong> — это все, кто ходил на занятия хотя бы месяц. В сентябре <strong>266</strong> из них продолжают заниматься, ещё <strong>165</strong> в сентябре не занимаются. Для младшей группы это во многом естественный итог работы: дети пошли в школу.
-      <div class="srow"><div class="spill"><span class="st">266</span>продолжили</div><div class="spill"><span>165</span>не занимаются в сентябре</div><div class="spill"><span class="st">62%</span>доля продолживших</div></div>
+    <h3>Состав сентября <span class="tag tagt">78% занимались и раньше</span></h3>
+    <div class="conc-body">Регулярно в сентябре занимаются <strong>339 человек</strong>. <strong>266</strong> из них (78%) занимались у нас и в прошлом учебном году, <strong>73</strong> (22%) — новички. 21 новичок знаком с нами и раньше: в прошлом году эти люди приходили на консультации.
+      <div class="srow"><div class="spill"><span class="st">266</span>занимались и раньше</div><div class="spill"><span class="sg">73</span>новички</div><div class="spill"><span class="st">78%</span>прежний состав</div></div>
     </div>
-  </div>
-
-  <div class="conc">
-    <h3>Обновление состава <span class="tag tagg">22% новичков</span></h3>
-    <div class="conc-body"><strong>73 человека</strong> начали регулярные занятия в сентябре, хотя в прошлом учебном году регулярно не занимались. Это каждый пятый в сентябрьском составе (22% из 339). 21 из них знаком с нами и раньше: в прошлом году они приходили на консультации.</div>
   </div>
 
   <div class="conc">
     <h3>Возраст <span class="tag tagt">гипотеза подтвердилась</span></h3>
     <div class="conc-body">
       <ul>
-        <li><strong>Молодые люди и взрослые (18+)</strong> — самый устойчивый состав: занятия продолжили 73% (65 из 89), доля новичков в сентябре — 12% (9 из 74).</li>
-        <li><strong>Дети и подростки 9–17 лет:</strong> продолжили 65% (102 из 158), новичков 13% (15 из 117).</li>
-        <li><strong>Дети до 9 лет</strong> — самое заметное обновление: продолжили 54% (99 из 184), а новичком оказался каждый третий (49 из 148, 33%). Многие из тех, кто не занимается в сентябре, пошли в школу.</li>
+        <li><strong>Молодые люди и взрослые (18+)</strong> — самый стабильный состав: 88% занимались у нас и раньше (65 из 74), новичков 12% (9).</li>
+        <li><strong>Дети и подростки 9–17 лет:</strong> 87% занимались и раньше (102 из 117), новичков 13% (15).</li>
+        <li><strong>Дети до 9 лет</strong> — самое заметное обновление: 67% занимались и раньше (99 из 148), новичком оказался каждый третий (49, 33%). Многие прошлогодние малыши пошли в школу.</li>
       </ul>
-      Данные подтверждают обе гипотезы: состав молодых людей и взрослых самый стабильный, а сильнее всего он обновляется у младших детей.
+      Данные подтверждают обе гипотезы: состав молодых людей и взрослых самый стабильный, а сильнее всего обновляется младшая группа.
     </div>
   </div>
 
@@ -465,14 +491,15 @@ body.showing{overflow:hidden;}
   </section>
 
   <section class="slide">
-    <div class="s-kicker">Переход между учебными годами</div>
-    <div class="s-title"><em>Шесть из десяти</em> продолжили занятия, каждый пятый в сентябре — <span class="g">новичок</span></div>
-    <div class="s-flow" id="flowShow"></div>
+    <div class="s-kicker">Состав регулярных занятий в сентябре</div>
+    <div class="s-title"><em>78%</em> занимались у нас и в прошлом году, <span class="g">22%</span> — новички</div>
+    <div class="s-sub">339 человек на регулярных занятиях</div>
+    <div class="comp s-comp" id="compShow"></div>
   </section>
 
   <section class="slide">
-    <div class="s-kicker">Переход по возрасту</div>
-    <div class="s-title">Чем старше, тем устойчивее состав. <em>Младшие дети</em> обновляются сильнее всех</div>
+    <div class="s-kicker">Состав по возрасту</div>
+    <div class="s-title">Взрослые — почти целиком <em>прежний состав</em>. У младших детей каждый третий — <span class="g">новичок</span></div>
     <div class="s-ages" id="agesShow"></div>
   </section>
 
@@ -481,9 +508,9 @@ body.showing{overflow:hidden;}
     <div class="s-title">Главное</div>
     <div class="s-list">
       <div><b>466 человек</b> получили помощь в сентябре. На занятиях и консультациях — больше, чем год назад (388 против 377), на первичном приёме — меньше (78 против 98).</div>
-      <div><b>266 из 431</b> человека, занимавшихся с января по июнь, продолжают регулярные занятия — 62%.</div>
-      <div class="g"><b>73 новичка</b> в регулярных занятиях — каждый пятый в сентябрьском составе. Две трети из них — дети до 9 лет.</div>
-      <div class="y"><b>165 человек</b> в сентябре не занимаются — среди малышей многие пошли в школу.</div>
+      <div><b>339 человек</b> регулярно занимаются в сентябре, <b>266</b> из них (78%) занимались у нас и в прошлом учебном году.</div>
+      <div class="g"><b>73 новичка</b> — каждый пятый в сентябрьском составе. Две трети из них — дети до 9 лет: многие прошлогодние малыши пошли в школу, и младшая группа обновилась сильнее всех.</div>
+      <div><b>Взрослый состав</b> самый стабильный: 88% занимались у нас и раньше.</div>
     </div>
   </section>
 
@@ -515,35 +542,26 @@ const p24=[86,69,103,58,40,70,46,81,41,81], p25=[98,70,49,54,49,65,54,67,51,70];
 const l24=[374,422,411,433,366,397,373,401,371,285], l25=[377,386,386,395,383,412,405,441,387,328];
 const pct=(a,b)=>Math.round(a/b*100);
 
-/* ─── FLOW ─── */
-function flowHTML(d){
-  const w=v=>(v/d.base*100)+'%';
-  return `
-  <div class="rl">Январь–июнь 2026<small>${d.base} человек занимались регулярно хотя бы месяц</small></div>
-  <div class="bar"><div class="seg s-cont" style="width:${w(d.cont)}">${d.cont}<small>продолжили</small></div><div class="seg s-out" style="width:${w(d.out)};animation-delay:.2s">${d.out}<small>не в сентябре</small></div></div>
-  <div></div>
-  <div class="link"><div class="band" style="width:${w(d.cont)}">↓ ${d.cont} — те же люди<span class="lk2">&nbsp;· ${pct(d.cont,d.base)}% от списка января–июня</span></div></div>
-  <div class="rl">Сентябрь 2026<small>${d.sep} человек на регулярных занятиях</small></div>
-  <div class="bar"><div class="seg s-cont" style="width:${w(d.cont)};animation-delay:.35s">${d.cont}<small>продолжили</small></div><div class="seg s-new" style="width:${w(d.neu)};animation-delay:.55s">${d.neu}<small>новички</small></div></div>`;
+/* ─── СОСТАВ СЕНТЯБРЯ ─── */
+function compHTML(d){
+  const w=v=>(v/d.sep*100)+'%';
+  return `<div class="bar comp-bar"><div class="seg s-cont" style="width:${w(d.cont)}">${d.cont}<small>занимались и раньше · ${pct(d.cont,d.sep)}%</small></div><div class="seg s-new" style="width:${w(d.neu)};animation-delay:.3s">${d.neu}<small>новички · ${pct(d.neu,d.sep)}%</small></div></div>`;
 }
-document.getElementById('flowMain').innerHTML=flowHTML(T);
-document.getElementById('flowShow').innerHTML=flowHTML(T);
+document.getElementById('compMain').innerHTML=compHTML(T);
+document.getElementById('compShow').innerHTML=compHTML(T);
 
 /* ─── AGES ─── */
 function ageCard(a,show){
-  const c=pct(a.cont,a.base), n=pct(a.neu,a.sep);
-  if(show) return `<div class="s-age"><h4>${a.k}<span class="agesub">${a.sub}</span></h4>
-    <div class="row"><div class="lab">продолжили<b style="color:var(--teal)">${c}%</b></div><div class="track"><div class="fill" style="width:${c}%;background:var(--teal)"></div></div></div>
-    <div class="row"><div class="lab">новичков в сентябре<b style="color:var(--grn)">${n}%</b></div><div class="track"><div class="fill" style="width:${n}%;background:var(--grn)"></div></div></div>
-    <div style="font-size:2.2vmin;color:var(--grey)">продолжили ${a.cont} из ${a.base}<br>новичков ${a.neu} из ${a.sep}</div></div>`;
-  return `<div class="age${a.k==='До 9 лет'?' hl':''}"><h4>${a.k}<span class="agesub">${a.sub}</span></h4><div class="n">январь–июнь: ${a.base} · сентябрь: ${a.sep}</div>
-    <div class="metric"><div class="lab">продолжили занятия<b style="color:var(--teal)">${c}%</b></div><div class="track"><div class="fill" style="width:${c}%;background:var(--teal)"></div></div></div>
-    <div class="metric"><div class="lab">доля новичков в сентябре<b style="color:var(--grn)">${n}%</b></div><div class="track"><div class="fill" style="width:${n}%;background:var(--grn)"></div></div></div>
-    <div class="facts">Продолжили — <b>${a.cont}</b>, не занимаются в сентябре — <b>${a.out}</b>, новички — <b>${a.neu}</b></div></div>`;
+  const c=pct(a.cont,a.sep), n=100-c;
+  const bar=`<div class="abar"><div class="seg s-cont" style="width:${c}%"></div><div class="seg s-new" style="width:${n}%;animation-delay:.3s"></div></div>`;
+  const list=`<div class="alist"><div><i style="background:var(--teal)"></i>занимались и раньше — <b>${c}%</b> (${a.cont})</div><div><i style="background:var(--grn)"></i>новички — <b>${n}%</b> (${a.neu})</div></div>`;
+  if(show) return `<div class="s-age"><h4>${a.k}<span class="agesub">${a.sub}</span></h4>${bar}<div class="alist"><div><i style="background:var(--teal)"></i>с прошлого года — <b>${c}%</b> (${a.cont})</div><div><i style="background:var(--grn)"></i>новички — <b>${n}%</b> (${a.neu})</div></div></div>`;
+  return `<div class="age${a.k==='До 9 лет'?' hl':''}"><h4>${a.k}<span class="agesub">${a.sub}</span></h4><div class="n">в сентябре ${a.sep} человек</div>${bar}${list}
+    ${a.k==='До 9 лет'?'<div class="facts">Многие прошлогодние малыши пошли в школу — поэтому здесь больше всего новичков.</div>':''}</div>`;
 }
 document.getElementById('agesMain').innerHTML=AGES.map(a=>ageCard(a,false)).join('');
 document.getElementById('agesShow').innerHTML=AGES.map(a=>ageCard(a,true)).join('');
-document.getElementById('ageTable').innerHTML=[{full:'Всего',...T},...AGES].map((a,i)=>`<tr class="${i?'':'tot'}"><td>${a.full}</td><td>${a.base}</td><td>${a.cont}</td><td>${a.out}</td><td>${a.neu}</td><td>${a.sep}</td><td>${(a.cont/a.base*100).toFixed(1).replace('.',',')}%</td><td>${(a.neu/a.sep*100).toFixed(1).replace('.',',')}%</td></tr>`).join('');
+document.getElementById('ageTable').innerHTML=[{full:'Всего',...T},...AGES].map((a,i)=>`<tr class="${i?'':'tot'}"><td>${a.full}</td><td>${a.sep}</td><td>${a.cont}</td><td>${a.neu}</td><td>${pct(a.cont,a.sep)}%</td><td>${100-pct(a.cont,a.sep)}%</td></tr>`).join('');
 document.getElementById('monTable').innerHTML=M.map((m,i)=>`<tr><td>${m}</td><td>${p24[i]}</td><td>${p25[i]}</td><td>${l24[i]}</td><td>${l25[i]}</td><td>${t24[i]}</td><td>${t25[i]}</td></tr>`).join('')+
   `<tr class="cur"><td>Сен 2026 ★</td><td colspan="2">78</td><td colspan="2">388</td><td colspan="2">466</td></tr>`;
 
