@@ -316,14 +316,13 @@ body.showing{overflow:hidden;}
     </div>
     <div class="hdr-right">
       <div class="badge">466 чел.</div>
-      <button class="show-btn" onclick="openShow(0)" title="Крупные слайды для показа на зуме">▶ Режим показа</button>
+      <button class="show-btn" onclick="openShow(0)" title="Крупные слайды для показа в Zoom">▶ Режим показа</button>
     </div>
   </div>
   <nav class="tabs">
     <button class="tab-btn active" data-tab="overview">Обзор</button>
     <button class="tab-btn hot" data-tab="transition">Состав сентября</button>
     <button class="tab-btn" data-tab="dynamics">Динамика</button>
-    <button class="tab-btn" data-tab="table">Таблицы</button>
     <button class="tab-btn" data-tab="conclusions">Выводы</button>
   </nav>
 </div>
@@ -337,7 +336,7 @@ body.showing{overflow:hidden;}
     <div class="card cp">
       <div class="card-lbl">Первичный приём</div>
       <div class="card-val vp">78</div>
-      <div class="card-sub">человек на первичном приёме</div>
+      <div class="card-sub">человек</div>
       <div class="delta dd">▼ на 20% меньше, чем в сентябре 2025 (98)</div>
     </div>
     <div class="card ct">
@@ -347,88 +346,62 @@ body.showing{overflow:hidden;}
       <div class="delta dn">● на уровне сентября 2025 (377)</div>
     </div>
     <div class="card cg">
-      <div class="card-lbl">Всего человек</div>
+      <div class="card-lbl">Всего</div>
       <div class="card-val vg">466</div>
       <div class="card-sub">дети, подростки, молодые люди и взрослые</div>
       <div class="delta dd">▼ на 2% меньше, чем в сентябре 2025 (475)</div>
     </div>
   </div>
 
-  <div class="sec">Три сентября подряд</div>
+  <div class="sec">Сентябрь 2024, 2025 и 2026 годов</div>
   <div class="ccrd">
-    <h3>Сентябрь 2024, 2025 и 2026 годов</h3>
     <div class="cmp" id="cmpMain"></div>
-    <div class="chart-note">Число людей на занятиях и консультациях почти не изменилось: 374 в 2024 году, 377 в 2025-м и 388 в 2026-м. На первичном приёме — 78 человек против 98 годом ранее. Поэтому общее число (466) немного меньше, чем в сентябре 2025 года (475), и чуть больше, чем в сентябре 2024-го (460).</div>
+    <div class="chart-note">На занятиях и консультациях почти столько же людей, сколько год назад: 388 против 377. На первичном приёме меньше: 78 против 98. Поэтому всего в сентябре 466 человек — на 9 меньше, чем в сентябре 2025 года, и на 6 больше, чем в сентябре 2024-го.</div>
   </div>
-
-  <div class="sec">Состав регулярных занятий в сентябре</div>
-  <div class="cards">
-    <div class="card ct">
-      <div class="card-lbl">Регулярно занимаются</div>
-      <div class="card-val vt">339</div>
-      <div class="card-sub">человек на регулярных занятиях в сентябре</div>
-    </div>
-    <div class="card ct">
-      <div class="card-lbl">Занимались у нас и раньше</div>
-      <div class="card-val vt">266</div>
-      <div class="card-sub">78% сентябрьского состава; занимались у нас и в прошлом учебном году</div>
-    </div>
-    <div class="card cg">
-      <div class="card-lbl">Новички</div>
-      <div class="card-val vg">73</div>
-      <div class="card-sub">22% сентябрьского состава</div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:4px"><button class="show-btn" style="background:var(--teal);color:#fff" onclick="switchTab('transition')">Подробнее о составе сентября →</button></div>
+  <div style="text-align:center;margin-top:18px"><button class="show-btn" style="background:var(--teal);color:#fff" onclick="switchTab('transition')">Кто занимается в сентябре →</button></div>
 </div>
 
-<!-- ══ ПЕРЕХОД ══ -->
+<!-- ══ СОСТАВ СЕНТЯБРЯ ══ -->
 <div class="tab-panel" id="tab-transition">
   <div class="hero-msg">
-    <div class="big">266 из 339 человек в сентябрьском составе (78%) занимались у нас и в прошлом учебном году, 73 человека (22%) — новички.</div>
-    <div class="small">Речь идёт о регулярных занятиях: в сентябре 2026 года их посещают 339 человек. «Занимались и раньше» — это те, у кого были регулярные занятия хотя бы в одном из месяцев с января по июнь 2026 года. Первичный приём, консультации и диагностика здесь не учитываются.</div>
+    <div class="big">Из 339 человек на регулярных занятиях 266 (78%) занимались у нас и в 2025–26 учебном году. 73 человека (22%) — новички.</div>
+    <div class="small">Здесь учитываются только регулярные занятия. Первичный приём, консультации и диагностика не учитываются.</div>
   </div>
 
   <div class="ccrd">
-    <h3>Кто занимается в сентябре</h3>
-    <div class="cs">339 человек на регулярных занятиях в сентябре 2026 года</div>
+    <h3>Регулярные занятия в сентябре 2026 года</h3>
+    <div class="cs">339 человек</div>
     <div class="comp" id="compMain"></div>
     <div class="flow-leg">
-      <div class="li"><div class="ld" style="background:var(--teal)"></div>Занимались у нас и в прошлом учебном году</div>
-      <div class="li"><div class="ld" style="background:var(--grn)"></div>Новички на регулярных занятиях</div>
+      <div class="li"><div class="ld" style="background:var(--teal)"></div>Занимались и в 2025–26 учебном году</div>
+      <div class="li"><div class="ld" style="background:var(--grn)"></div>Новички</div>
     </div>
-    <div class="chart-note">21 из 73 новичков уже бывал у нас: в прошлом году эти люди приходили на консультации, но регулярно не занимались.</div>
+    <div class="chart-note">21 из 73 новичков в 2025–26 учебном году приходил к нам на консультации, но регулярно не занимался.</div>
   </div>
 
-  <div class="sec">По возрасту · возраст на 1 сентября 2026 года</div>
+  <div class="sec">По возрасту · на 1 сентября 2026 года</div>
   <div class="ages" id="agesMain"></div>
-  <div class="chart-note" style="margin-top:14px">В группах 9–17 лет и 18+ состав одинаково стабилен: у нас и раньше занимались 87% и 88% соответственно. В группе до 9 лет — 67%. Младшая группа обновляется заметно сильнее: на неё приходятся <strong>49 из 73 новичков</strong>.</div>
 
-  <div class="sec">Для справки</div>
-  <div class="ccrd">
-    <h3>Почему список за полгода больше состава любого месяца</h3>
-    <div class="cs">В течение учебного года одни начинают заниматься, другие заканчивают. Поэтому за полгода набирается больше людей, чем занимается в любой отдельно взятый месяц.</div>
-    <div class="tscroll"><table class="mini">
-      <thead><tr><th></th><th>Янв</th><th>Фев</th><th>Мар</th><th>Апр</th><th>Май</th><th>Июн</th><th>За январь–июнь</th></tr></thead>
-      <tbody><tr><td>На регулярных занятиях</td><td>363</td><td>382</td><td>383</td><td>392</td><td>364</td><td>295</td><td><b>431</b></td></tr></tbody>
+  <div class="twrap" style="margin-top:16px">
+    <div class="tscroll"><table>
+      <thead><tr><th>Группа</th><th>На регулярных занятиях</th><th>Занимались и в 2025–26</th><th>Новички</th><th>Доля новичков</th></tr></thead>
+      <tbody id="ageTable"></tbody>
     </table></div>
-    <div class="chart-note">Из 431 человека, занимавшегося хотя бы месяц с января по июнь, 266 продолжают заниматься в сентябре. Остальные 165 в сентябре у нас не занимаются; 85 из них — дети до 9 лет.</div>
   </div>
+  <div class="chart-note">Больше всего новичков среди детей до 9 лет: 49 человек, или 33% группы. В группах 9–17 лет и 18+ новичков 13% и 12%.</div>
 </div>
 
 <!-- ══ ДИНАМИКА ══ -->
 <div class="tab-panel" id="tab-dynamics">
-  <div class="sec">Всего человек по месяцам</div>
+  <div class="sec">Всего по месяцам</div>
   <div class="ccrd">
-    <h3>Учебные годы 2024–25, 2025–26 и начало 2026–27</h3>
-    <div class="cs">С сентября по июнь. Новый учебный год пока представлен одним месяцем — сентябрём.</div>
+    <h3>Учебные годы 2024–25, 2025–26 и сентябрь 2026–27</h3>
     <div class="leg">
       <div class="li"><div class="ld" style="background:#A9A9A8"></div>2024–25</div>
       <div class="li"><div class="ld" style="background:#019BAB"></div>2025–26</div>
       <div class="li"><div class="ld" style="background:#E5004F"></div>2026–27</div>
     </div>
     <div class="cwrap"><div id="cTotal" class="svgc"></div></div>
-    <div class="chart-note">В сентябре 2026 года — 466 человек: немного меньше, чем в сентябре 2025-го (475), и чуть больше, чем в сентябре 2024-го (460).</div>
   </div>
   <div class="sec">Занятия и консультации по месяцам</div>
   <div class="ccrd">
@@ -438,76 +411,32 @@ body.showing{overflow:hidden;}
       <div class="li"><div class="ld" style="background:#E5004F"></div>2026–27</div>
     </div>
     <div class="cwrap"><div id="cLess" class="svgc"></div></div>
-    <div class="chart-note">В сентябре на занятиях и консультациях 388 человек — почти столько же, сколько в начале двух предыдущих учебных годов (374 и 377).</div>
-  </div>
-</div>
-
-<!-- ══ ТАБЛИЦЫ ══ -->
-<div class="tab-panel" id="tab-table">
-  <div class="twrap">
-    <div class="thdr"><h3>Сравнение сентябрей</h3><p>Изменения указаны относительно сентября предыдущего года.</p></div>
-    <div class="tscroll"><table>
-      <thead><tr><th>Месяц</th><th>Первичный приём</th><th>Изменение</th><th>Занятия и консультации</th><th>Изменение</th><th>Всего</th><th>Изменение</th></tr></thead>
-      <tbody>
-        <tr><td>Сентябрь 2024</td><td>86</td><td>—</td><td>374</td><td>—</td><td>460</td><td>—</td></tr>
-        <tr><td>Сентябрь 2025</td><td>98</td><td class="tdg">+12 (+14%)</td><td>377</td><td>+3 (+1%)</td><td>475</td><td class="tdg">+15 (+3%)</td></tr>
-        <tr class="cur"><td>Сентябрь 2026 ★</td><td>78</td><td class="tdp">−20 (−20%)</td><td>388</td><td>+11 (+3%)</td><td>466</td><td class="tdp">−9 (−2%)</td></tr>
-      </tbody>
-    </table></div>
-  </div>
-
-  <div class="twrap">
-    <div class="thdr"><h3>Состав регулярных занятий в сентябре по возрасту</h3><p>Каждый человек учтён один раз · возраст на 1 сентября 2026 года</p></div>
-    <div class="tscroll"><table>
-      <thead><tr><th>Группа</th><th>Регулярно занимаются в сентябре</th><th>Занимались и раньше</th><th>Новички</th><th>Доля занимавшихся раньше</th><th>Доля новичков</th></tr></thead>
-      <tbody id="ageTable"></tbody>
-    </table></div>
-  </div>
-
-  <div class="twrap">
-    <div class="thdr"><h3>Учебный год 2025–26 по месяцам</h3><p>Данные детского табеля, как в летнем отчёте</p></div>
-    <div class="tscroll"><table>
-      <thead><tr><th>Месяц</th><th>Первичный приём, 2024–25</th><th>Первичный приём, 2025–26</th><th>Занятия и консультации, 2024–25</th><th>Занятия и консультации, 2025–26</th><th>Всего, 2024–25</th><th>Всего, 2025–26</th></tr></thead>
-      <tbody id="monTable"></tbody>
-    </table></div>
   </div>
 </div>
 
 <!-- ══ ВЫВОДЫ ══ -->
 <div class="tab-panel" id="tab-conclusions">
-  <div class="sec">Ключевые выводы · сентябрь 2026</div>
+  <div class="sec">Выводы · сентябрь 2026</div>
 
   <div class="conc">
-    <h3>Всего человек <span class="tag tagp">−2% к сентябрю 2025</span></h3>
-    <div class="conc-body">В сентябре помощь ЦЛП получили <strong>466 человек</strong>: 78 пришли на первичный приём, 388 — на занятия и консультации. Это на 9 человек меньше, чем в сентябре 2025 года (475), и на 6 больше, чем в сентябре 2024-го (460).
-      <div class="srow"><div class="spill"><span class="sg">466</span>сентябрь 2026</div><div class="spill"><span>475</span>сентябрь 2025</div><div class="spill"><span>460</span>сентябрь 2024</div></div>
-    </div>
+    <h3>1. Всего 466 человек</h3>
+    <div class="conc-body">Это на 9 человек меньше, чем в сентябре 2025 года (475), и на 6 больше, чем в сентябре 2024-го (460).</div>
   </div>
 
   <div class="conc">
-    <h3>Занятия и консультации <span class="tag tagt">на уровне сентября 2025</span></h3>
-    <div class="conc-body">На занятиях и консультациях <strong>388 человек</strong> — почти столько же, сколько в сентябре 2025 и 2024 годов (377 и 374). 339 человек занимаются регулярно, ещё 49 пришли только на консультации. Общее число снизилось прежде всего из-за первичного приёма: <strong>78 человек против 98</strong> годом ранее.</div>
+    <h3>2. Занятия и консультации — на уровне 2025 года, первичный приём — ниже</h3>
+    <div class="conc-body">На занятиях и консультациях 388 человек против 377 в сентябре 2025 года. На первичном приёме — 78 против 98. Общее число снизилось прежде всего за счёт первичного приёма.</div>
   </div>
 
   <div class="conc">
-    <h3>Состав сентября <span class="tag tagt">78% занимались и раньше</span></h3>
-    <div class="conc-body">В сентябре регулярно занимаются <strong>339 человек</strong>. Из них <strong>266</strong> (78%) занимались у нас и в прошлом учебном году, <strong>73</strong> (22%) — новички. 21 из них уже бывал у нас: в прошлом году эти люди приходили на консультации.
-      <div class="srow"><div class="spill"><span class="st">266</span>занимались и раньше</div><div class="spill"><span class="sg">73</span>новички</div><div class="spill"><span class="st">78%</span>доля прежнего состава</div></div>
-    </div>
+    <h3>3. 78% регулярно занимающихся — прежний состав</h3>
+    <div class="conc-body">Из 339 человек на регулярных занятиях 266 занимались у нас и в 2025–26 учебном году, 73 — новички. 21 из новичков в прошлом году приходил к нам на консультации.</div>
   </div>
 
   <div class="conc">
-    <h3>Возраст <span class="tag tagt">младшая группа обновляется сильнее</span></h3>
-    <div class="conc-body">
-      <ul>
-        <li><strong>Молодые люди и взрослые (18+):</strong> 88% занимались у нас и раньше (65 из 74), новички — 12% (9 человек).</li>
-        <li><strong>Дети и подростки 9–17 лет:</strong> 87% занимались у нас и раньше (102 из 117), новички — 13% (15 человек).</li>
-        <li><strong>Дети до 9 лет:</strong> 67% занимались у нас и раньше (99 из 148), а новички составляют 33% (49 человек).</li>
-      </ul>
-      Предположение о том, что сильнее всего обновляется младшая группа, подтвердилось. А вот оснований считать состав молодых людей и взрослых более стабильным, чем в группе 9–17 лет, нет: доли прежнего состава у них практически совпадают (88% и 87%).
-    </div>
+    <h3>4. Больше всего новичков среди детей до 9 лет</h3>
+    <div class="conc-body">В этой группе новички составляют 33% (49 из 148). В группах 9–17 лет и 18+ — 13% и 12%.</div>
   </div>
-
 </div>
 </main>
 
@@ -518,31 +447,29 @@ body.showing{overflow:hidden;}
 
   <section class="slide">
     <div class="s-kicker">Контрактный отдел · сентябрь 2026</div>
-    <div class="s-title">В сентябре помощь ЦЛП получили <em>466 человек</em></div>
+    <div class="s-title">В сентябре помощь получили <em>466 человек</em></div>
     <div class="s-row">
       <div class="s-num p"><div class="v" style="color:var(--pink)">78</div><div class="l">первичный приём</div><div class="d dd">▼ на 20% меньше, чем год назад</div></div>
       <div class="s-num"><div class="v" style="color:var(--teal)">388</div><div class="l">занятия и консультации</div><div class="d dn">● на уровне прошлого года</div></div>
-      <div class="s-num g"><div class="v" style="color:var(--grn)">466</div><div class="l">всего человек</div><div class="d dd">▼ на 2% меньше, чем год назад</div></div>
+      <div class="s-num g"><div class="v" style="color:var(--grn)">466</div><div class="l">всего</div><div class="d dd">▼ на 2% меньше, чем год назад</div></div>
     </div>
   </section>
 
   <section class="slide">
-    <div class="s-kicker">Три сентября подряд</div>
-    <div class="s-title">На занятиях и консультациях — <em>прежний уровень</em>, на первичном приёме — <span style="color:var(--pink)">меньше</span></div>
+    <div class="s-kicker">Сентябрь 2024, 2025 и 2026 годов</div>
+    <div class="s-title">Занятий и консультаций — <em>столько же</em>, первичных приёмов — <span style="color:var(--pink)">меньше</span></div>
     <div class="cmp s-cmp" id="cmpShow"></div>
-    <div class="s-foot">Всего человек: 460 → 475 → <b>466</b></div>
   </section>
 
   <section class="slide">
-    <div class="s-kicker">Состав регулярных занятий в сентябре</div>
+    <div class="s-kicker">Регулярные занятия в сентябре · 339 человек</div>
     <div class="s-title"><em>78%</em> занимались у нас и в прошлом учебном году, <span class="g">22%</span> — новички</div>
-    <div class="s-sub">339 человек на регулярных занятиях</div>
     <div class="comp s-comp" id="compShow"></div>
   </section>
 
   <section class="slide">
-    <div class="s-kicker">Состав по возрасту</div>
-    <div class="s-title">С 9 лет и старше <em>87–88%</em> занимались у нас раньше, до 9 лет <span class="g">33%</span> — новички</div>
+    <div class="s-kicker">Регулярные занятия по возрасту</div>
+    <div class="s-title">Больше всего новичков — <span class="g">среди детей до 9 лет</span></div>
     <div class="s-ages" id="agesShow"></div>
   </section>
 
@@ -550,10 +477,10 @@ body.showing{overflow:hidden;}
     <div class="s-kicker">Итоги сентября</div>
     <div class="s-title">Главное</div>
     <div class="s-list">
-      <div><b>466 человек</b> получили помощь в сентябре. На занятиях и консультациях — почти столько же, сколько год назад (388 и 377), на первичном приёме — меньше (78 против 98).</div>
-      <div><b>339 человек</b> регулярно занимаются в сентябре, <b>266</b> из них (78%) занимались у нас и в прошлом учебном году.</div>
-      <div class="g"><b>73 новичка</b> — 22% сентябрьского состава. 49 из них — дети до 9 лет: младшая группа обновилась сильнее всех.</div>
-      <div>В группах <b>9–17 лет и 18+</b> у нас и раньше занимались 87% и 88% состава.</div>
+      <div>Всего <b>466 человек</b> — на 9 меньше, чем в сентябре 2025 года.</div>
+      <div>Занятия и консультации — на уровне прошлого года (<b>388</b> против 377), первичный приём — ниже (<b>78</b> против 98).</div>
+      <div><b>78%</b> регулярно занимающихся — прежний состав, <b>22%</b> — новички.</div>
+      <div class="g">Больше всего новичков среди детей до 9 лет — <b>33%</b> группы.</div>
     </div>
   </section>
 
@@ -588,7 +515,7 @@ const pct=(a,b)=>Math.round(a/b*100);
 /* ─── СОСТАВ СЕНТЯБРЯ ─── */
 function compHTML(d){
   const w=v=>(v/d.sep*100)+'%';
-  return `<div class="bar comp-bar"><div class="seg s-cont" style="width:${w(d.cont)}">${d.cont}<small>занимались и раньше · ${pct(d.cont,d.sep)}%</small></div><div class="seg s-new" style="width:${w(d.neu)};animation-delay:.3s">${d.neu}<small>новички · ${pct(d.neu,d.sep)}%</small></div></div>`;
+  return `<div class="bar comp-bar"><div class="seg s-cont" style="width:${w(d.cont)}">${d.cont}<small>занимались и в 2025–26 · ${pct(d.cont,d.sep)}%</small></div><div class="seg s-new" style="width:${w(d.neu)};animation-delay:.3s">${d.neu}<small>новички · ${pct(d.neu,d.sep)}%</small></div></div>`;
 }
 document.getElementById('compMain').innerHTML=compHTML(T);
 document.getElementById('compShow').innerHTML=compHTML(T);
@@ -597,16 +524,14 @@ document.getElementById('compShow').innerHTML=compHTML(T);
 function ageCard(a,show){
   const c=pct(a.cont,a.sep), n=100-c;
   const bar=`<div class="abar"><div class="seg s-cont" style="width:${c}%"></div><div class="seg s-new" style="width:${n}%;animation-delay:.3s"></div></div>`;
-  const list=`<div class="alist"><div><i style="background:var(--teal)"></i>занимались и раньше — <b>${c}%</b> (${a.cont})</div><div><i style="background:var(--grn)"></i>новички — <b>${n}%</b> (${a.neu})</div></div>`;
-  if(show) return `<div class="s-age"><h4>${a.k}<span class="agesub">${a.sub}</span></h4>${bar}<div class="alist"><div><i style="background:var(--teal)"></i>с прошлого года — <b>${c}%</b> (${a.cont})</div><div><i style="background:var(--grn)"></i>новички — <b>${n}%</b> (${a.neu})</div></div></div>`;
-  return `<div class="age${a.k==='До 9 лет'?' hl':''}"><h4>${a.k}<span class="agesub">${a.sub}</span></h4><div class="n">в сентябре: ${a.sep}</div>${bar}${list}
+  const list=`<div class="alist"><div><i style="background:var(--teal)"></i>прежний состав — <b>${c}%</b> (${a.cont})</div><div><i style="background:var(--grn)"></i>новички — <b>${n}%</b> (${a.neu})</div></div>`;
+  if(show) return `<div class="s-age"><h4>${a.k}<span class="agesub">${a.sub}</span></h4>${bar}${list}</div>`;
+  return `<div class="age${a.k==='До 9 лет'?' hl':''}"><h4>${a.k}<span class="agesub">${a.sub}</span></h4><div class="n">на регулярных занятиях: ${a.sep}</div>${bar}${list}
 </div>`;
 }
 document.getElementById('agesMain').innerHTML=AGES.map(a=>ageCard(a,false)).join('');
 document.getElementById('agesShow').innerHTML=AGES.map(a=>ageCard(a,true)).join('');
-document.getElementById('ageTable').innerHTML=[{full:'Всего',...T},...AGES].map((a,i)=>`<tr class="${i?'':'tot'}"><td>${a.full}</td><td>${a.sep}</td><td>${a.cont}</td><td>${a.neu}</td><td>${pct(a.cont,a.sep)}%</td><td>${100-pct(a.cont,a.sep)}%</td></tr>`).join('');
-document.getElementById('monTable').innerHTML=M.map((m,i)=>`<tr><td>${m}</td><td>${p24[i]}</td><td>${p25[i]}</td><td>${l24[i]}</td><td>${l25[i]}</td><td>${t24[i]}</td><td>${t25[i]}</td></tr>`).join('')+
-  `<tr class="cur"><td>Сен 2026 ★</td><td colspan="2">78</td><td colspan="2">388</td><td colspan="2">466</td></tr>`;
+document.getElementById('ageTable').innerHTML=[{full:'Всего',...T},...AGES].map((a,i)=>`<tr class="${i?'':'tot'}"><td>${a.full}</td><td>${a.sep}</td><td>${a.cont}</td><td>${a.neu}</td><td>${100-pct(a.cont,a.sep)}%</td></tr>`).join('');
 
 /* ─── СРАВНЕНИЕ СЕНТЯБРЕЙ: два показателя отдельно ─── */
 function cmpHTML(){
